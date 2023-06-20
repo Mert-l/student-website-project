@@ -24,6 +24,7 @@ async function connecting(){
     connecting();
 
 
+    app.use('/user', require("./routs/Users"))
 
 app.listen(4000,  ()=> {
     console.log('listening on port 4000!')
