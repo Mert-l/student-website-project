@@ -25,7 +25,7 @@ const postPost= async (req,res) =>{
 
             if (found){
                 removed = await Posts.deleteOne({_id: req.body.id})
-                if(updated.acknowledged && updated.modifiedCount > 0){
+                if(removed.acknowledged && removed.modifiedCount > 0){
                     res.send({ok: true, data: 'post deleted'})
                } else{
                    res.send({ok: false, data: 'account  wanst deleted went smt wrong '})
