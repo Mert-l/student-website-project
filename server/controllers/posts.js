@@ -7,7 +7,7 @@ const postPost= async (req,res) =>{
    
    
         const created_post = await Posts.create({title, image, userId, price, tags, interested, type })
-        res.send({ok: true, data: ' post created', post: created_post})
+        res.send({ok: true, data: 'post created', post: created_post})
   
     
        
@@ -25,7 +25,7 @@ const postPost= async (req,res) =>{
 
             if (found){
                 removed = await Posts.deleteOne({_id: req.body.id})
-                if(removed.acknowledged && removed.modifiedCount > 0){
+                if(removed.acknowledged && removed.deletedCount > 0){
                     res.send({ok: true, data: 'post deleted'})
                } else{
                    res.send({ok: false, data: 'account  wanst deleted went smt wrong '})
@@ -41,7 +41,7 @@ const postPost= async (req,res) =>{
                 const object_to_update = res.object
             try{
                     const updated = await Posts.findOneAndUpdate({_id: req.body.id, object_to_update} )
-                    res.send({ok: true, data: 'post updated'})
+                    res.send({ok: true, data: 'post updated', post : updated})
             } catch(err){
 
                 res.send(error)

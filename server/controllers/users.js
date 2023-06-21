@@ -2,7 +2,7 @@ const Posts  = require("../models/Post")
 const Users  = require("../models/User")
 
 const registerUser= async (req,res) =>{
-    const {username, email, password, city, userPosts, likedPost, degree, pic }=req.body
+    const {username, email, password, city, userPosts, likedPost, degree, pic, userId }=req.body
     try {
     const found_name =await Users.findOne({username})
     const found_mail =await Users.findOne({email})
@@ -12,7 +12,7 @@ const registerUser= async (req,res) =>{
       
        res.send({ok: true, data: 'this name is taken'})
     } else if (!found_name && !found_mail){
-       const created_user = await Users.create({ username, email , password, city, userPosts, likedPost, degree, pic  })
+       const created_user = await Users.create({ username, email , password, city, userPosts, likedPost, degree, pic, userId })
         res.send({ok: true, data: 'user added', user: created_user})
     }
        

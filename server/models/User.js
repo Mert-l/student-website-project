@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   username: { type: String, required: true, unique: true },
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: "user" },
   password: { type:String, required: true, unique: true },
   userPosts : [{post_id: {type: mongoose.Schema.Types.ObjectId, ref: 'post',}}], // do same as down
   city: { type: String, required: true },
