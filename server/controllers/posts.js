@@ -1,20 +1,26 @@
 const Posts  = require("../models/Post")
 const Users  = require("../models/User")
 
-const postPost= async (req,res) =>{
-    const {title, image, userId, price, tags, interested, type }=req.body
-    try {
-   
-   
-        const created_post = await Posts.create({title, image, userId, price, tags, interested, type })
-        res.send({ok: true, data: 'post created', post: created_post})
+const postPost = async (req, res) => {
+    const { title, image, price, tags, interested, type, email } = req.body;
   
-    
-       
+    try {
+      const user = await Users.findOne({ email });
+      console.log(user._id);
+      const created_post = await Posts.create({
+        title,
+        image,
+        price,
+        userId: user._id,
+        tags,
+        interested,
+        type,
+      });
+      res.send({ ok: true, data: " post created", post: created_post });
     } catch (error) {
-        res.send(error)
+      res.send(error);
     }
-    }
+  };
 
 
     const deletePost= async (req,res) =>{
