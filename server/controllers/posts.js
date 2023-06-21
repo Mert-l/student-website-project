@@ -6,8 +6,8 @@ const postPost= async (req,res) =>{
     try {
    
    
-        await Posts.create({title, image, userId, price, tags, interested, type })
-        res.send({ok: true, data: ' post created'})
+        const created_post = await Posts.create({title, image, userId, price, tags, interested, type })
+        res.send({ok: true, data: ' post created', post: created_post})
   
     
        

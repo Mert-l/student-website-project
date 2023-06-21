@@ -12,8 +12,8 @@ const registerUser= async (req,res) =>{
       
        res.send({ok: true, data: 'this name is taken'})
     } else if (!found_name && !found_mail){
-        await Users.create({ username, email , password, city, userPosts, likedPost, degree, pic  })
-        res.send({ok: true, data: 'user added'})
+       const created_user = await Users.create({ username, email , password, city, userPosts, likedPost, degree, pic  })
+        res.send({ok: true, data: 'user added', user: created_user})
     }
        
     } catch (error) {
@@ -22,7 +22,9 @@ const registerUser= async (req,res) =>{
     }
 
 const deleteAccount = async (req, res) => {
-const {email, password} = req.body;
+
+    try{
+        const {email, password} = req.body;
 const found_mail =await Users.findOne({email}) 
 const found_pass =await Users.findOne({password}) 
 
@@ -35,17 +37,18 @@ if(found_mail && found_pass){
             res.send({ok: false, data: 'account deleted wanst deletes smt wrong '})
         }
 
-
-   
-
 } else{
     res.send({ok: true, data: 'user doesnt exist'})
 }
+    } catch(err){
+        res.send(err);
+    }
 
 }
 
 const updateAccount = async (req, res) => {
-const {username, new_name} = req.body;
+try{
+    const {username, new_name} = req.body;
 const found =await Users.findOne({username})
 if(found) {
     const updated = await Users.updateOne({username: username}, {username: new_name } )
@@ -57,17 +60,24 @@ if(updated.acknowledged && updated.modifiedCount > 0 ){
 } else{
     res.send({ok: true, data: 'couldnt find the user'})
 }
+} catch(err){
+    response.send(err);
+}
     
 }
 
 const logIn = async (req, res) => {
-  const  { email} = req.body;
+ try{
+    const  { email} = req.body;
     const found = Users.findOne({email});
     if(found){
         res.send('logde in ')
-    } else{[
+    } else{
         res.send('No account exist. Create one')
-    ]}
+    }
+ } catch(err){
+    response.send(err)
+ }
 }
 
 
