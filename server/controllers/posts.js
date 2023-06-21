@@ -56,6 +56,19 @@ const postPost = async (req, res) => {
 
         }
 
+        const likePost = async(req,res)=>{
+            const {postId, userId}= req.body
+            try {
+              const offer = await Posts.findOneAndUpdate({_id: postId}, {$push: {interested: {userId : userId}}}) 
+              res.send('post was liked')
+             } catch (error) {
+              res.send(error)
+            }
+          }
 
 
-    module.exports = {postPost, deletePost, updatePost}
+
+
+
+
+    module.exports = {postPost, deletePost, updatePost, likePost}
