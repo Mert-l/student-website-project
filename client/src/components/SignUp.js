@@ -38,7 +38,7 @@ const SignUp = () => {
             });
 
             setMessage(response.data.data);
-			if (response.data.data === 'Your account has been created, you will be redirected to log in page') {
+			if (response.data.ok) {
 				setTimeout(() => {
 					
                     navigate('/login');

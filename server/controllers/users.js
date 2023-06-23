@@ -15,17 +15,17 @@ const registerUser= async (req,res) =>{
     const found_name =await Users.findOne({username})
     const found_mail =await Users.findOne({email})
     if(found_mail) {
-        res.send({ok:true, data: "This account with this email already exists!!!!!"})
+        res.send({ok:false, data: "This account with this email already exists!!!!!"})
     } else if(found_name) {
       
-       res.send({ok: true, data: 'this name is taken'})
+       res.send({ok: false, data: 'this name is taken'})
     } else if (!found_name && !found_mail){
         
       if(password == password_repeat){
         const hash = await argon2.hash(password, salt);
         const created_user = await Users.create({ username, email ,password: hash, city })
         res.send({ok: true, data: 'Your account has been created, you will be redirected to log in page', user: created_user})
-      } else{res.send({ok:true, data:'passwords must match'})}
+      } else{res.send({ok:false, data:'passwords must match'})}
     }
        
     } catch (error) {
