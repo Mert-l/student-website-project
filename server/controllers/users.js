@@ -1,9 +1,17 @@
 const Posts  = require("../models/Post")
 const Users  = require("../models/User")
+const argon2 = require("argon2");
+const salt = "4r3frhu87";
+const jwt = require("jsonwebtoken");
+const validator = require("validator");
+const jwt_secret = process.env.JWT_SECRET;
+
 
 const registerUser= async (req,res) =>{
     const {username, email, password, city, userPosts, likedPost, degree, pic, userId }=req.body
+    
     try {
+        const hash = await argon2.hash(password, salt);
     const found_name =await Users.findOne({username})
     const found_mail =await Users.findOne({email})
     if(found_mail) {
@@ -12,7 +20,7 @@ const registerUser= async (req,res) =>{
       
        res.send({ok: true, data: 'this name is taken'})
     } else if (!found_name && !found_mail){
-       const created_user = await Users.create({ username, email , password, city, userPosts, likedPost, degree, pic, userId })
+       const created_user = await Users.create({ username, email ,password: hash, city, userPosts, likedPost, degree, pic, userId })
         res.send({ok: true, data: 'user added', user: created_user})
     }
        
@@ -67,18 +75,45 @@ if(updated.acknowledged && updated.modifiedCount > 0 ){
 }
 
 const logIn = async (req, res) => {
+
+    const  { email, password} = req.body;
+
+    if (!email || !password) {
+        return res.json({ ok: false, message: "All fields are required" });
+      }
+      if (!validator.isEmail(email)) {
+        return res.json({ ok: false, message: "Invalid email provided" });
+      }
+
  try{
-    const  { email} = req.body;
+    
     const found = Users.findOne({email});
     if(found){
-        res.send('logde in ')
+        const match = await argon2.verify(found.password, password);
+        if(match){
+            const token = jwt.sign({ email: found.email }, jwt_secret, {
+                expiresIn: "1h",
+              });
+              res.send({ ok: true, data: "welcome back", token, email });
+        }
+       
     } else{
-        res.send('No account exist. Create one')
+        res.send({ok: true, data: 'No account exist. Create one'})
     }
  } catch(err){
-    response.send(err)
+    res.send(err)
  }
 }
 
+const verify_token = (req, res) => {
+    console.log(req.headers.authorization);
+    const token = req.headers.authorization;
+    jwt.verify(token, jwt_secret, (err, succ) => {
+      err
+        ? res.json({ ok: false, message: "Token is corrupted" })
+        : res.json({ ok: true, succ });
+    });
+  };
 
-    module.exports = {registerUser, deleteAccount, updateAccount, logIn};
+
+    module.exports = {registerUser, deleteAccount, updateAccount, logIn, verify_token};
