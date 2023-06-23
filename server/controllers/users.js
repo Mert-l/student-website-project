@@ -8,7 +8,7 @@ const jwt_secret = process.env.JWT_SECRET;
 
 
 const registerUser= async (req,res) =>{
-    const {username, email, password, city,password_repeat , userId }=req.body
+    const {username, email, password, city,password_repeat  }=req.body
     
     try {
         
@@ -23,7 +23,7 @@ const registerUser= async (req,res) =>{
         
       if(password == password_repeat){
         const hash = await argon2.hash(password, salt);
-        const created_user = await Users.create({ username, email ,password: hash, city, userPosts, likedPost, degree, pic, userId })
+        const created_user = await Users.create({ username, email ,password: hash, city })
         res.send({ok: true, data: 'user added', user: created_user})
       } else{res.send({ok:true, data:'passwords must match'})}
     }

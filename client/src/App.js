@@ -25,10 +25,10 @@ function App() {
        <Routes>
        <Route path='/'  element={isLoggedIn ?  <Navigate to={'/Home'}/> : <Navigate to={'/LogIn'}/> }  />
          <Route path="/home" element={<Home />} />
-         <Route path="/marketplace" element={<Marketplace />} />
+         {/* <Route path="/marketplace" element={<Marketplace />} />
          <Route path="/tutoring" element={<Tutoring />} />
          <Route path="/rentals" element={<Rentals />} />
-         <Route path="/social" element={<Social />} />
+         <Route path="/social" element={<Social />} /> */}
          <Route path="/login" element={<LogIn />} />
          <Route path="/register" element={<SignUp />} />
 

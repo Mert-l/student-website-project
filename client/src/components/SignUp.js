@@ -1,6 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import axios from 'axios';
+import { useState} from 'react';
+
 
 const SignUp = () => {
  
@@ -18,20 +20,17 @@ const SignUp = () => {
 	};
 
     const handleSubmit = async (e) => {
-        e.preventDefalult();
+        e.preventDefault();
         try{
+            debugger
+           
             const response = await axios.post('http://localhost:4000/user/register', {
                 email: form.email,
                 password: form.password,
                 password_repeat: form.password_repeat,
                 city: form.city
             });
-            // setMessage(response.data.message);
-            // if (response.data.ok) {
-			// 	setTimeout(() => {
-			// 		navigate('/login');
-			// 	}, 2000);
-			//}
+         
 
         } catch(err){
             console.log(err);
@@ -50,7 +49,7 @@ const SignUp = () => {
             <input placeholder='password' className= 'box_item' name='password' />
             <input placeholder='repeat password' className= 'box_item' name= 'password_repeat' />
             <input placeholder='city' className= 'box_item' name= 'city' />
-            <button className= 'box_item'  >Sign up</button>
+            <button type="submit" className= 'box_item'  >Sign up</button>
             
 
         </form>
