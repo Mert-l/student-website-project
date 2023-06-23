@@ -2,18 +2,23 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import axios from 'axios';
 import { useState} from 'react';
+import {useNavigate} from 'react-router-dom'
+
 
 
 const SignUp = () => {
- 
+
+ const navigate=useNavigate()
+
     const [ form, setValues ] = useState({
 		email: '',
 		password: '',
 		password_repeat: '',
-        city: ''
+        city: '',
+        username: ''
 	});
  
-// const [ message, setMessage ] = useState('');
+ const [ message, setMessage ] = useState('');
 
     const handleChange = (e) => {
 		setValues({ ...form, [e.target.name]: e.target.value });
@@ -22,15 +27,25 @@ const SignUp = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
-            debugger
+            
            
             const response = await axios.post('http://localhost:4000/user/register', {
                 email: form.email,
                 password: form.password,
                 password_repeat: form.password_repeat,
-                city: form.city
+                city: form.city,
+                username: form.username
             });
-         
+
+            setMessage(response.data.data);
+			if (response.data.data === 'Your account has been created, you will be redirected to log in page') {
+				setTimeout(() => {
+					
+                    navigate('/login');
+				}, 7000);
+			}
+
+         console.log(response)
 
         } catch(err){
             console.log(err);
@@ -48,8 +63,10 @@ const SignUp = () => {
             <input placeholder='email' className= 'box_item' name='email' />
             <input placeholder='password' className= 'box_item' name='password' />
             <input placeholder='repeat password' className= 'box_item' name= 'password_repeat' />
+            <input placeholder='username' className= 'box_item' name= 'username' />
             <input placeholder='city' className= 'box_item' name= 'city' />
             <button type="submit" className= 'box_item'  >Sign up</button>
+            <h5 className= 'box_item' >{message}</h5>
             
 
         </form>
