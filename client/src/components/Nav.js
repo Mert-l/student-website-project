@@ -12,11 +12,11 @@ const Nav = () => {
 
 return (
 
-<div  className = 'navbar' >
+<nav  className = 'navbar' >
 
     
 
-<NavLink className = 'single'
+<NavLink className = 'logo_on_navbar'
         to={"/home"}>
         Student f
       </NavLink>
@@ -42,8 +42,10 @@ return (
         Social
       </NavLink>
 
+      <button className = 'profile_button'> </button>
 
-    </div>
+
+    </nav>
 
 
 
