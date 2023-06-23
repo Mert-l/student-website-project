@@ -8,7 +8,7 @@ const jwt_secret = process.env.JWT_SECRET;
 
 
 const registerUser= async (req,res) =>{
-    const {username, email, password, city, userPosts, likedPost, degree, pic, userId }=req.body
+    const {username, email, password, passwod_repeat, city,  userId }=req.body
     
     try {
         const hash = await argon2.hash(password, salt);
@@ -20,8 +20,13 @@ const registerUser= async (req,res) =>{
       
        res.send({ok: true, data: 'this name is taken'})
     } else if (!found_name && !found_mail){
-       const created_user = await Users.create({ username, email ,password: hash, city, userPosts, likedPost, degree, pic, userId })
+        const match = await argon2.verify(password, password_repeat);
+       if(match){
+        const created_user = await Users.create({ username, email ,password: hash, city, userPosts, likedPost, degree, pic, userId })
         res.send({ok: true, data: 'user added', user: created_user})
+       } else(
+        res.send({ok:true, data: 'repeated password is not correct'})
+       )
     }
        
     } catch (error) {
@@ -87,7 +92,7 @@ const logIn = async (req, res) => {
 
  try{
     
-    const found = Users.findOne({email});
+    const found = await Users.findOne({email});
     if(found){
         const match = await argon2.verify(found.password, password);
         if(match){
@@ -95,7 +100,8 @@ const logIn = async (req, res) => {
                 expiresIn: "1h",
               });
               res.send({ ok: true, data: "welcome back", token, email });
-        }
+        } else{
+            res.send({ok:true, data:'password didnt match'})        }
        
     } else{
         res.send({ok: true, data: 'No account exist. Create one'})
