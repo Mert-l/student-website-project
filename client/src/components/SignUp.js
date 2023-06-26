@@ -60,13 +60,14 @@ const SignUp = () => {
 
         <form className= 'container' onSubmit={handleSubmit} onChange={handleChange}  >
             
-            <input placeholder='email' className= 'box_item' name='email' />
+            <input placeholder='email' className= 'box_item' name='email'  required />
             <input placeholder='password' className= 'box_item' name='password' />
             <input placeholder='repeat password' className= 'box_item' name= 'password_repeat' />
             <input placeholder='username' className= 'box_item' name= 'username' />
             <input placeholder='city' className= 'box_item' name= 'city' />
             <button type="submit" className= 'box_item'  >Sign up</button>
             <h5 className= 'box_item' >{message}</h5>
+            <NavLink  className= 'box_item2'  to={'/logIn'}> Go back   </NavLink> 
             
 
         </form>

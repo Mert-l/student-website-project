@@ -19,7 +19,12 @@ const registerUser= async (req,res) =>{
     } else if(found_name) {
       
        res.send({ok: false, data: 'this name is taken'})
-    } else if (!found_name && !found_mail){
+    } else if(!username || !email || !password || !city || password_repeat){
+        res.send({ok:false, data:'all fields requirded'})
+    }
+    
+    
+    else if (!found_name && !found_mail){
         
       if(password == password_repeat){
         const hash = await argon2.hash(password, salt);
@@ -83,10 +88,10 @@ const logIn = async (req, res) => {
     const  { email, password} = req.body;
 
     if (!email || !password) {
-        return res.json({ ok: false, message: "All fields are required" });
+        return res.json({ ok: false, data: "All fields are required" });
       }
       if (!validator.isEmail(email)) {
-        return res.json({ ok: false, message: "Invalid email provided" });
+        return res.json({ ok: false, data: "Invalid email provided" });
       }
 
  try{
