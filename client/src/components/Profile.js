@@ -9,8 +9,8 @@ const Profile = (props) => {
   const fetchUser = async () => {
     try {
       const response = await axios.get('http://localhost:4000/user/getUser')
-      console.log(response)
-  props.setUser(response.data)
+      console.log( 'response: ' +  response)
+
     } catch (error) {
       console.log(error);
     }
@@ -25,7 +25,7 @@ const Profile = (props) => {
 
   return (
 
-<h1>  {props.user}</h1>
+<h1> ble</h1>
   )
 };
 
