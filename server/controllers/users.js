@@ -100,13 +100,13 @@ const logIn = async (req, res) => {
               });
               res.send({ ok: true, data: "welcome back", token, email });
         } else{
-            res.send({ok:true, data:'password didnt match'})        }
+            res.send({ok:false, data:'password didnt match'})        }
        
     } else{
-        res.send({ok: true, data: 'No account exist. Create one'})
+        res.send({ok: false, data: 'No account exist. Create one'})
     }
  } catch(err){
-    res.send(err)
+res.send({ok:false, data:'smth wrong'})
  }
 }
 

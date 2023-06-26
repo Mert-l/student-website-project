@@ -1,14 +1,13 @@
+import DropDown from './DropDown';
 
-
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 
 
 
-
-const Nav = () => {
-
+const Nav = (props) => {
+const [openDropDown, setOpenDropDown] = useState(false)
 
 return (
 
@@ -42,7 +41,13 @@ return (
         Social
       </NavLink>
 
-      <button className = 'profile_button'> </button>
+      <div>
+
+      <button className = 'profile_button'   onClick= {() => setOpenDropDown(!openDropDown)}  >Log o </button>
+
+      {openDropDown ? <DropDown   logout={props.logout}  /> : null }
+
+      </div>
 
 
     </nav>

@@ -89,8 +89,8 @@ align-items: center;
 }
 .profile_button{
   background: url("./images/user.png");
-  padding: 1%;
-  border-radius: 50%;
+  padding: 2%;
+  border-radius: 70%;
 }
 
 
@@ -113,4 +113,16 @@ align-items: center;
 }
 .three h4{
   margin-top:1%;
+}
+
+.DropDown{
+  color: white;
+  display:flex;
+  flex-direction: column;
+  position:absolute;
+  margin-top: 1%;
+}
+
+.dropDownBox{
+  margin-right: 10%;
 }
