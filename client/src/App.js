@@ -14,6 +14,7 @@ import React, { useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import './index.css';
+import * as jose from "jose";
 
 
 function App() {
@@ -53,7 +54,7 @@ const login = (token) => {
   let decodedToken = jose.decodeJwt(token);
  
   let user = {
-    email: decodedToken.userEmail,
+    email: decodedToken.email,
   };
 
   localStorage.setItem("user", JSON.stringify(user));
