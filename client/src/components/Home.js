@@ -24,31 +24,26 @@ setPosts(response.data)
 
 return(
 
-{
-
-if(){
-  posts.map(ele => {
+  <div>
+  {
+    null ? 
+    <h1>no posts yet</h1> :  posts.map(ele => {
 
       return(
-
+    
         <div>
         <h2> {ele.title} </h2>
         {ele.image ? <img src= {ele.image}/> : null  }
           {ele.price ? <h5> {ele.price} </h5> : null }
           <h5>Interested: {ele.interested.length}  </h5>
       </div>
-
+    
       )
-
-  })
-}
- else{
-  return (<h3>No posts fetched yet</h3>)
-}
-
-
-}
-
+    
+    })}
+   
+  
+</div>
 
 
 
