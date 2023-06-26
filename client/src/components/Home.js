@@ -3,13 +3,13 @@ import axios from "axios";
 import React, {useState, useEffect} from "react";
 
 const Home = () => {
- const [post, setPost] = useState(null);
+ const [posts, setPosts] = useState(null);
 
  const fetchPosts = async () => {
   try {
-    const response = await axios.get('http://localhost:4000/posts/getPosts')
+    const response = await axios.get('http://localhost:4000/post/getPosts')
     console.log(response)
-setPost(response.data)
+setPosts(response.data)
   } catch (error) {
     console.log(error);
   }
@@ -20,6 +20,25 @@ setPost(response.data)
   fetchPosts()
     }, []);
 
+ 
+
+    {  posts.map(ele => {
+      if(posts.ele){
+  
+        return (
+          <div>
+          <h2> {ele.title} </h2>
+          {ele.image ? <img src= {ele.image}/> : null  }
+            {ele.price ? <h5> {ele.price} </h5> : null }
+            <h5>Interested: {ele.interested.length}  </h5>
+        </div>
+      
+        )
+  
+      } else{
+        return <h3>No posts fetched yet</h3>
+      }
+  }) }
 
 
 
@@ -28,27 +47,9 @@ setPost(response.data)
 
 
 
-  return (
-
-    <div classname= "post">
-
-      <h3> {post.title} </h3>
-
-      {post.image ? <img src= {post.image}/> : null  }
-      {post.price ? <h5> {post.price} </h5> : null }
-      <h5>Interested: {post.interested.length}  </h5>
 
 
-
-
-
-    </div>
-
-
-
-
-
-  )
+  
 };
 
 export default Home;
