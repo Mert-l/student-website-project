@@ -2,7 +2,7 @@ const Posts  = require("../models/Post")
 const Users  = require("../models/User")
 
 const postPost = async (req, res) => {
-    const { title, image, price, tags, interested, type, email } = req.body;
+    const { title, image, price, tags, interested, type, email, description } = req.body;
   
     try {
       const user = await Users.findOne({ email });
@@ -15,6 +15,7 @@ const postPost = async (req, res) => {
         tags,
         interested,
         type,
+        description
       });
       res.send({ ok: true, data: " post created", post: created_post });
     } catch (error) {

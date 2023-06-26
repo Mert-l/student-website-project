@@ -6,6 +6,7 @@ const postSchema = new mongoose.Schema({
     userId: { type: mongoose.Schema.Types.ObjectId, ref: "user" },
     price: { type: Number, required: false, unique: false, default: 0 },
     tags: [{ type: String, required: false, unique: false }],
+    description: { type: String, required: true },
     interested: [
       {
         userId: { type: mongoose.Schema.Types.ObjectId, ref: "user" },

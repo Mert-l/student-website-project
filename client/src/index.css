@@ -126,3 +126,46 @@ align-items: center;
 .dropDownBox{
   margin-right: 10%;
 }
+
+.post{
+  border: solid thin ;
+  box-shadow: 2px 5px 8px 2px rgba(71, 69, 69, 0.5); 
+  display:flex;
+  width:50vh;
+  justify-content: center;
+  margin:2%;
+  margin-top: 4%;
+
+}
+
+.post_inside {
+  display:flex;
+  flex-direction: column;
+
+  /* margin: 2%; */
+  width:100%;
+  
+}
+
+.display_posts{
+  margin: 5%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr)
+}
+
+.post_text{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 2%;
+}
+
+.price_interested{
+  display: flex;
+  justify-content: space-between;
+}
+
+.post_inside  img{
+height:50%;
+/* margin:2%; */
+}

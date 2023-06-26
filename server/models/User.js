@@ -8,7 +8,8 @@ const userSchema = new mongoose.Schema({
   city: { type: String, required: true },
   likedPost : [{post_id: {type: mongoose.Schema.Types.ObjectId, ref: 'post',}, _id: false,}],
   degree : [{level: {type:String}}, {degree_name: {type:String}},  {sclool: {type:String}},],
-  pic: {type: String}
+  pic: {type: String},
+  bio: { type: String}
 })
 
 

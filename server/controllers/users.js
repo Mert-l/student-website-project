@@ -110,6 +110,21 @@ res.send({ok:false, data:'smth wrong'})
  }
 }
 
+
+
+const getUser= async (req,res) =>{
+    
+    try {
+        const found = await Users.findOne({email: req.body.email});
+        if(found){
+            res.send({ok: true, data: found})
+        }
+    } catch (error) {
+        res.send(error)
+    }
+    }
+
+
 const verify_token = (req, res) => {
     console.log(req.headers.authorization);
     const token = req.headers.authorization;
@@ -121,4 +136,4 @@ const verify_token = (req, res) => {
   };
 
 
-    module.exports = {registerUser, deleteAccount, updateAccount, logIn, verify_token};
+    module.exports = {registerUser, deleteAccount, updateAccount, logIn, verify_token, getUser};

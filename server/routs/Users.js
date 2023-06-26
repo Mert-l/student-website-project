@@ -7,6 +7,7 @@ router.post("/register", controlfile.registerUser)
 router.delete("/deleteAccount", controlfile.deleteAccount)
  router.post("/updateAccount", controlfile.updateAccount)
  router.post("/verify_token", controlfile.verify_token)
+ router.get("/getUser", controlfile.getUser)
 
 
 
