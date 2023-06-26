@@ -169,3 +169,21 @@ align-items: center;
 height:50%;
 /* margin:2%; */
 }
+
+.profile_box{
+  border: solid thin;
+  margin-left:auto;
+  margin-right: auto;
+  margin-bottom: 10%;
+  width:75%;
+  height: 90vh;
+}
+
+.first_half{
+  display: flex;
+  justify-content: space-around;
+}
+
+.bio_and_stuff{
+  
+}
