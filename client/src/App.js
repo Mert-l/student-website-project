@@ -20,6 +20,7 @@ function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   const token = JSON.parse(localStorage.getItem("token"))
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
 
   useEffect(() => {
     const verify_token = async () => {
@@ -48,8 +49,18 @@ function App() {
 // }
 
 const login = (token) => {
+
+  let decodedToken = jose.decodeJwt(token);
+ 
+  let user = {
+    email: decodedToken.userEmail,
+  };
+
+  localStorage.setItem("user", JSON.stringify(user));
+
  token && localStorage.setItem("token", JSON.stringify(token));
   setIsLoggedIn(true);
+
 }
 const logout= () => {
   localStorage.removeItem("token")
