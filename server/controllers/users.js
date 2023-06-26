@@ -117,7 +117,7 @@ const getUser= async (req,res) =>{
     try {
         const found = await Users.findOne({email: req.body.email});
         if(found){
-            res.send({ok: true, data: found})
+            res.send({ok: true, obj: found})
         }
     } catch (error) {
         res.send(error)

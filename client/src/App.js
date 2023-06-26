@@ -56,6 +56,7 @@ const login = (token) => {
   let user = {
     email: decodedToken.email,
   };
+  setUser(user);
 
   localStorage.setItem("user", JSON.stringify(user));
 
