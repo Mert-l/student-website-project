@@ -4,19 +4,24 @@ import React, {useState, useEffect} from "react";
 
 const Home = () => {
  const [post, setPost] = useState(null);
-const getPosts = () => {
+
+ const fetchPosts = async () => {
+  try {
+    const response = await axios.get('http://localhost:4000/posts/getPosts')
+    console.log(response)
+setPost(response.data)
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 
-   
-  
   useEffect(() => {
-      axios.get('http://localhost:4000/posts/post')
-  .then((response) => {
-        setPost(response.data);
-      });
+  fetchPosts()
     }, []);
 
-  }
+
+
 
 
 
@@ -25,7 +30,7 @@ const getPosts = () => {
 
   return (
 
-    <div>
+    <div classname= "post">
 
       <h3> {post.title} </h3>
 

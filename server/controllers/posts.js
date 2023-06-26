@@ -67,8 +67,17 @@ const postPost = async (req, res) => {
           }
 
 
+          const getPost= async (req,res) =>{
+            try {
+                const post = await Posts.find({})
+                res.send(post)
+            } catch (error) {
+                res.send(error)
+            }
+            }
 
 
 
 
-    module.exports = {postPost, deletePost, updatePost, likePost}
+
+    module.exports = {postPost, deletePost, updatePost, likePost, getPost}

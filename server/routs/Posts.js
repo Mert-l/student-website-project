@@ -6,6 +6,7 @@ router.post("/post", controlfile.postPost)
 router.post("/updatePost", controlfile.updatePost)
  router.delete("/deletePost", controlfile.deletePost)
  router.post("/likePost", controlfile.likePost)
+ router.get("/getPosts", controlfile.getPost)
 
 
 
