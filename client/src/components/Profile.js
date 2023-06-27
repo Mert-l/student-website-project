@@ -10,7 +10,7 @@ const Profile = (props) => {
 
   const fetchUser = async () => {
     try {
-      const response = await axios.post('http://localhost:4000/user/getUser',{email: props.user.email})
+      const response = await axios.post('http://localhost:4000/user/getUser',{_id: props.user._id})
       
       console.log( 'response: ' ,  response)
       setUser(response.data.obj)
@@ -66,11 +66,11 @@ const Profile = (props) => {
     <input placeholder='degree'  name='degree' value={user_.degree && user_.degree}  disabled={dis} />
     <input placeholder='City'  name='city' value={user_.city && user_.city}  disabled={dis}  />
     <input placeholder='Bio'  name='bio'  value={user_.bio && user_.bio} disabled={dis} />
-    <button type="submit" className= 'box_item'  >Save changes</button>
+   
     <h3> {message} </h3>
-
-
     </form>
+ {/* <button   type="submit" className= 'box_item'  >Save changes</button> */}
+
 
 
       

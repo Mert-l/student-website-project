@@ -54,7 +54,7 @@ const login = (token) => {
   let decodedToken = jose.decodeJwt(token);
  
   let user = {
-    email: decodedToken.email,
+    _id: decodedToken._id,
   };
   setUser(user);
 

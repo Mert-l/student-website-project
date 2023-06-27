@@ -19,7 +19,7 @@ const registerUser= async (req,res) =>{
     } else if(found_name) {
       
        res.send({ok: false, data: 'this name is taken'})
-    } else if(!username || !email || !password || !city || password_repeat){
+    } else if(!username || !email || !password || !city || !password_repeat){
         res.send({ok:false, data:'all fields requirded'})
     }
     
@@ -102,10 +102,10 @@ const logIn = async (req, res) => {
     if(found){
         const match = await argon2.verify(found.password, password);
         if(match){
-            const token = jwt.sign({ email: found.email }, jwt_secret, {
+            const token = jwt.sign({ _id: found._id }, jwt_secret, {
                 expiresIn: "1h",
               });
-              res.send({ ok: true, data: "welcome back", token, email });
+              res.send({ ok: true, data: "welcome back", token, _id });
         } else{
             res.send({ok:false, data:'password didnt match'})        }
        
