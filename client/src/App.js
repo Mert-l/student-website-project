@@ -88,7 +88,7 @@ const logout= () => {
          <Route path="/login" element={isLoggedIn ? <Navigate to='/Home'/> : <LogIn  login={login} /> } />
          <Route path="/register" element={<SignUp />} />  
          
-         <Route path="/profile" element={<Profile  user={user}   />} />             
+         <Route path="/profile" element={<Profile  user={user} setUser_fromApp={setUser}  />} />             
 
   
        </Routes>
