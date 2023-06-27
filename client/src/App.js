@@ -56,7 +56,7 @@ const login = (token) => {
  
   let user = {
     _id: decodedToken._id,
-    email: decodedToken.email
+  
   };
   setUser(user);
 
@@ -89,7 +89,8 @@ const logout= () => {
          <Route path="/social" element={<Social />} /> */}
          <Route path="/login" element={isLoggedIn ? <Navigate to='/Home'/> : <LogIn  login={login} /> } />
          <Route path="/register" element={<SignUp />} />  
-         <Route path="/addPost" element={<AddPost   user={user} />} /> 
+         {/* <Route path="/addPost" element={<AddPost   user={user} />} /> */}
+         <Route path="/addPost"    element={!isLoggedIn ? <Navigate to="/LogIn" /> : <AddPost user={user} />}  /> 
          
          <Route path="/profile" element={<Profile  user={user} setUser_fromApp={setUser}  />} />             
 

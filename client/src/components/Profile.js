@@ -7,6 +7,8 @@ const Profile = (props) => {
   const [ user_, setUser ] = useState(null)
   const [ message, setMessage ] = useState('')
   const [dis, setDis] = useState(true)
+  const [posts, setPosts] = useState(null);
+
 
   const fetchUser = async () => {
     try {
@@ -29,6 +31,24 @@ const Profile = (props) => {
       const handleChange = (e) => {
         setUser({ ...user_, [e.target.name]: e.target.value });
       };
+
+
+      const fetchPosts = async () => {
+        try {
+          const response = await axios.get('http://localhost:4000/post/getUserPosts', {userId: props.user._id})
+          console.log( 'post response:' , response)
+      setPosts(response.data)
+        } catch (error) {
+          console.log(error);
+        }
+      }
+      
+      
+        useEffect(() => {
+        fetchPosts()
+          }, []);
+      
+
 
 
       const handleSubmit = async (e) =>{

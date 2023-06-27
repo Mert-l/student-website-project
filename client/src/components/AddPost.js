@@ -15,21 +15,7 @@ function AddPost(props) {
 
 
 
-const fetchUser = async () => {
-    try {
-      const response = await axios.post('http://localhost:4000/user/getUser',{_id: props.user._id})
-      
-      console.log( 'user response: ' ,  response)
-    //   setUser(response.data.obj)
 
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  useEffect(() => {
-    fetchUser()
-      }, []);
 
 
     const handleChange = (e) => {
@@ -42,14 +28,14 @@ const fetchUser = async () => {
         e.preventDefault();
 
         try{
+            debugger
             const response = await axios.post('http://localhost:4000/post/post', {
 
             title: post.title,
             image: post.image,
             price: post.price,
             description: post.description,
-           // email: response.data.obj.email  // problem
-           email: props.user.email
+           userId: props.user._id
 
             } );
 

@@ -2,16 +2,16 @@ const Posts  = require("../models/Post")
 const Users  = require("../models/User")
 
 const postPost = async (req, res) => {
-    const { title, image, price, tags, interested, type, email, description } = req.body;
-  
+    const { title, image, price, tags, interested, type, userId, description } = req.body;
+  debugger
     try {
-      const user = await Users.findOne({ email });
+      const user = await Users.findOne({ _id: userId });
       console.log(user._id);
       const created_post = await Posts.create({
         title,
         image,
         price,
-        userId: user._id,
+        userId,
         tags,
         interested,
         type,
@@ -77,8 +77,19 @@ const postPost = async (req, res) => {
             }
             }
 
+            const getUserPost= async (req,res) =>{
+              const {userId} = req.body;
+
+              try {
+                  const post = await Posts.find({userId: userId })
+                  res.send(post)
+              } catch (error) {
+                  res.send(error)
+              }
+              }
 
 
 
 
-    module.exports = {postPost, deletePost, updatePost, likePost, getPost}
+
+    module.exports = {postPost, deletePost, updatePost, likePost, getPost, getUserPost}
