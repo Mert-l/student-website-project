@@ -25,6 +25,7 @@ const SignUp = () => {
 	};
 
     const handleSubmit = async (e) => {
+        console.log('subitted')
         e.preventDefault();
         try{
             

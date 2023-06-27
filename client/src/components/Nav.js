@@ -43,7 +43,7 @@ return (
 
       <div>
 
-      <button className = 'profile_button'   onClick= {() => setOpenDropDown(!openDropDown)}  >Log o </button>
+      <button className = 'profile_button'   onClick= {() => setOpenDropDown(!openDropDown)}  ></button>
 
       {openDropDown ? <DropDown   logout={props.logout}  /> : null }
 

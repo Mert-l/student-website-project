@@ -64,14 +64,16 @@ if(found_mail && found_pass){
 }
 
 const updateAccount = async (req, res) => {
+ 
 try{
-    const {username, new_name} = req.body;
-const found =await Users.findOne({username})
+    
+const found =await Users.findOne({_id: req.body._id} )
 if(found) {
-    const updated = await Users.updateOne({username: username}, {username: new_name } )
-if(updated.acknowledged && updated.modifiedCount > 0 ){
-    res.send({ok: true, data: `username updatet to ${new_name} `})
-} else{  res.send({ok: false, data: ' it wanst updated for some reason but the email exists'}) }
+    const updated = await  Users.findOneAndUpdate({_id: req.body._id},  req.body )
+    res.send({ok: true, data: `account has been updated`})
+// if(updated.acknowledged && updated.modifiedCount > 0 ){
+//     res.send({ok: true, data: `account has been updated`})
+// } else{  res.send({ok: false, data: ' it wanst updated for some reason but the email exists'}) }
 
     
 } else{

@@ -7,7 +7,8 @@ const userSchema = new mongoose.Schema({
   userPosts : [{post_id: {type: mongoose.Schema.Types.ObjectId, ref: 'post',}}], // do same as down
   city: { type: String, required: true },
   likedPost : [{post_id: {type: mongoose.Schema.Types.ObjectId, ref: 'post',}, _id: false,}],
-  degree : [{level: {type:String}}, {degree_name: {type:String}},  {sclool: {type:String}},],
+  //degree : [{level: {type:String}}, {degree_name: {type:String}},  {sclool: {type:String}},],
+  degree: {type: String},
   pic: {type: String},
   bio: { type: String}
 })

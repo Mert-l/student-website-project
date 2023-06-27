@@ -66,6 +66,7 @@ const login = (token) => {
 }
 const logout= () => {
   localStorage.removeItem("token")
+  localStorage.removeItem("user")
   setIsLoggedIn(false)
 }
 

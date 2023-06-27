@@ -88,9 +88,14 @@ align-items: center;
   text-decoration: line;
 }
 .profile_button{
-  background: url("./images/user.png");
+  background-image: url("./images/user.png");
   padding: 2%;
   border-radius: 70%;
+  width:30px;
+  height: 30px;
+  background-repeat: no-repeat;
+  background-position: center ;
+
 }
 
 
@@ -172,6 +177,7 @@ height:50%;
 
 .profile_box{
   border: solid thin;
+  margin-top:8%;
   margin-left:auto;
   margin-right: auto;
   margin-bottom: 10%;
@@ -182,8 +188,27 @@ height:50%;
 .first_half{
   display: flex;
   justify-content: space-around;
+  
+}
+
+.first_half img {
+  width:40%;
+  height: 30%;
+  
 }
 
 .bio_and_stuff{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
   
+}
+
+.bio_and_stuff input{
+  width:60%;
+  margin: 7%;
+  padding: 1.5%;
+  margin-left:auto;
+  margin-right: auto;
+
 }
