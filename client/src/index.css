@@ -212,3 +212,28 @@ height:50%;
   margin-right: auto;
 
 }
+
+.container_post_creating{
+  display: flex;
+  justify-content: space-around;
+}
+.features{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.types{
+  display: flex;
+  justify-content: space-around;
+
+}
+.two_buttons{
+  display: flex;
+  justify-content: space-around;
+}
+.features  input {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+}

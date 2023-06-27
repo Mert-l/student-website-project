@@ -41,6 +41,11 @@ return (
         Social
       </NavLink>
 
+      <NavLink  className = 'single'
+        to={"/addPost"}>
+        Add Post
+      </NavLink>
+
       <div>
 
       <button className = 'profile_button'   onClick= {() => setOpenDropDown(!openDropDown)}  ></button>

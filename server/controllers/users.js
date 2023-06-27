@@ -105,7 +105,7 @@ const logIn = async (req, res) => {
             const token = jwt.sign({ _id: found._id }, jwt_secret, {
                 expiresIn: "1h",
               });
-              res.send({ ok: true, data: "welcome back", token, _id });
+              res.send({ ok: true, data: "welcome back", token});
         } else{
             res.send({ok:false, data:'password didnt match'})        }
        
@@ -122,7 +122,7 @@ res.send({ok:false, data:'smth wrong'})
 const getUser= async (req,res) =>{
     
     try {
-        const found = await Users.findOne({email: req.body.email});
+        const found = await Users.findOne({_id: req.body._id});
         if(found){
             res.send({ok: true, obj: found})
         }
