@@ -1,3 +1,8 @@
+* {
+  box-sizing: border-box;
+}
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -176,39 +181,54 @@ height:50%;
 }
 
 .profile_box{
-  border: solid thin;
+  /* border: solid thin; */
   margin-top:8%;
   margin-left:auto;
   margin-right: auto;
   margin-bottom: 10%;
   width:75%;
-  height: 90vh;
+  height: 100%;
+
 }
 
 .first_half{
   display: flex;
   justify-content: space-around;
+  align-items: center;
   
 }
 
 .first_half img {
   width:40%;
-  height: 30%;
+  height: 50%;
   
 }
+.side{
+  display:flex;
+  align-items:baseline ;
+}
+
 
 .bio_and_stuff{
   display:flex;
   flex-direction: column;
   justify-content: space-around;
+  width:50%;
   
+}
+.two_shorter{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width:70%;
+  margin-left:2%;
 }
 
 .bio_and_stuff input{
-  width:60%;
+  width:80%;
   margin: 7%;
   padding: 1.5%;
-  margin-left:auto;
+  margin-right:50%;
   margin-right: auto;
 
 }
@@ -235,5 +255,35 @@ height:50%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+
+}
+
+.modify_button{
+  background-color: rgba(52, 61, 196, 0.903);
+  color:white;
+  border-radius: 10%;
+  width:40px;
+  height:30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20%;
+  box-shadow: 1px 4px 7px 1px rgba(0, 0, 0, 0.5); 
+}
+
+.display_posts2{
+
+display:grid;
+grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+
+}
+
+.post2{
+  border: solid thin ;
+  box-shadow: 2px 5px 8px 2px rgba(71, 69, 69, 0.5); 
+  display:flex;
+  width:50vh;
+  justify-content: center;
+  margin:2%;
+  margin-top: 4%;
 
 }
