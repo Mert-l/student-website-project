@@ -27,11 +27,11 @@ const postPost = async (req, res) => {
     const deletePost= async (req,res) =>{
        
         try {
-       debugger
-            const found = await Posts.findOne({_id: req.body._id})
+      
+            const found = await Posts.findOne(req.body.updateForm._id)
 
             if (found){
-                removed = await Posts.deleteOne({_id: req.body.id})
+                removed = await Posts.deleteOne({_id: req.body.updateForm._id})
                 if(removed.acknowledged && removed.deletedCount > 0){
                     res.send({ok: true, data: 'post deleted'})
                } else{
@@ -45,7 +45,7 @@ const postPost = async (req, res) => {
         }
 
         const updatePost = async (req, res) => {
-     debugger
+     
             try{
               const updated = await  Posts.findOneAndUpdate({_id: req.body._id},  req.body )
                     res.send({ok: true, data: 'post updated', post : updated})

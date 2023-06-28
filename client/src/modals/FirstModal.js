@@ -17,8 +17,8 @@ const delete_post = async () => {
     
         console.log('triggersd delete function')
 try{
-
-const response = await axios.delete("http://localhost:4000/post/deletePost", {
+debugger
+const response = await axios.post("http://localhost:4000/post/deletePost", {
         updateForm });
         console.log(  'deleted:   ' ,  response);
 
