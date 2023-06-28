@@ -172,7 +172,9 @@ const Profile = (props) => {
         </div>
       )}
 
-      <ReactModalInput open={open} toggle={toggle} passed_post={modalPosts} />
+{open && (
+        <ReactModalInput open={open} toggle={toggle} modalPosts={modalPosts} />
+      )}
     </div>
   );
 };

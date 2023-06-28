@@ -3,52 +3,61 @@ import { FaInfoCircle } from "react-icons/fa";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-
 Modal.setAppElement("#root");
 
-function ReactModalInfo({ open, toggle, passed_post }) {
+function ReactModalInfo({ open, toggle, modalPosts }) {
+  const [dis, setDis] = useState(true);
+  const [updateForm, setUpdateForm] = useState({ ...modalPosts });
 
-    const [dis, setDis] = useState(true);
+  const handleChange = (e) => {
+    setUpdateForm({ ...updateForm, [e.target.name]: e.target.value });
+  };
 
-    const [ post, setPost ] = useState(passed_post);
+const delete_post = async () => {
+    
+        console.log('triggersd delete function')
+try{
 
-    const handleChange = (e) => {
-		setPost({ ...post, [e.target.name]: e.target.value });
-	};
+const response = await axios.delete("http://localhost:4000/post/deletePost", {
+        updateForm });
+        console.log(  'deleted:   ' ,  response);
 
-    console.log('passed post: ',  passed_post )
 
-        
+} catch(err)  {
+
+     console.log(  "the current errr:  " , err);
+
+}
+
+}
+
+
   const handleSubmit = async (e) => {
-    //debugger
     e.preventDefault();
     console.log("submits");
     try {
-debugger
-        const response = await axios.post("http://localhost:4000/post/updatePost", post);
-        console.log(  'maybe updated: ' , response)
-            
+      
+      const response = await axios.post(
+        "http://localhost:4000/post/updatePost",
+        updateForm
+      );
+      console.log("maybe updated: ", response);
     } catch (err) {
       console.log(err);
     }
   };
 
-
-
   return (
     <>
-      {passed_post && (
+      {modalPosts && (
         <Modal
           isOpen={open}
           onRequestClose={() => toggle("close")}
           contentLabel="Info"
           className="myModal"
         >
-
-
-          <p>{passed_post._id}</p>
-          <div >
-            <p>delete or update {passed_post.title} </p>
+          <div>
+            <p>delete or update {updateForm.title} </p>
             <button
               onClick={() => toggle("React-Modal-Info")}
               className="close info"
@@ -65,52 +74,56 @@ debugger
             </button>
           </div>
 
-          
+          <div className="container_post_creating">
+            <button className="" onClick={() => setDis(!dis)}>
+              Modify
+            </button>
 
-          <div  className='container_post_creating' >  
-
-          <button className=''    onClick={() => setDis(!dis)}  >  Modify  </button>
-      
-      <div className='features' >
-
-            <div  className='types' >
+            <div className="features">
+              <div className="types">
                 <button>sell</button>
                 <button>tutoring</button>
                 <button>rentals</button>
                 <button>social</button>
+              </div>
+              <form
+                classNmae="features"
+                onSubmit={handleSubmit}
+                onChange={handleChange}
+              >
+                <input
+                  placeholder="image"
+                  name="image"
+                  value={updateForm.image && updateForm.image}
+                  disabled={dis}
+                />
+                <input
+                  placeholder="title"
+                  name="title"
+                  value={updateForm.title && updateForm.title}
+                  disabled={dis}
+                />
+                <input
+                  placeholder="description"
+                  name="description"
+                  value={updateForm.description && updateForm.description}
+                  disabled={dis}
+                />
+                <input
+                  placeholder="price"
+                  name="price"
+                  value={updateForm.price && updateForm.price}
+                  disabled={dis}
+                />
 
+                <div className="two_buttons">
+                  <button>save</button>
+                
+                </div>
+              </form>
+                <button onClick={delete_post}  >delete post</button>
             </div>
-            <form classNmae='features' onSubmit={handleSubmit} onChange={handleChange}   >
-             
-
-          
-                <input placeholder='image'  name='image'  value={post.image && post.image}  disabled={dis}  /> 
-                <input placeholder='title'  name='title'   value={post.title && post.title} disabled={dis} /> 
-                <input placeholder='description'  name='description'   value={post.description && post.description} disabled={dis} />
-                <input placeholder='price' name='price'  value={post.price && post.price}  disabled={dis} /> 
-
-                    <div className='two_buttons' >
-                        
-                        <button>save</button>
-
-                    </div>
-            </form>
-
-      </div>
-
-
-
-
-
-
-
-    </div>
-
-          
-            
-
-
-
+          </div>
         </Modal>
       )}
     </>

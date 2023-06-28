@@ -27,8 +27,8 @@ const postPost = async (req, res) => {
     const deletePost= async (req,res) =>{
        
         try {
-       
-            const found = await Posts.findOne({_id: req.body.id})
+       debugger
+            const found = await Posts.findOne({_id: req.body._id})
 
             if (found){
                 removed = await Posts.deleteOne({_id: req.body.id})
@@ -44,8 +44,8 @@ const postPost = async (req, res) => {
         }
         }
 
-        const updatePost = async (res, req) => {
-     
+        const updatePost = async (req, res) => {
+     debugger
             try{
               const updated = await  Posts.findOneAndUpdate({_id: req.body._id},  req.body )
                     res.send({ok: true, data: 'post updated', post : updated})
