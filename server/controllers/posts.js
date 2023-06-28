@@ -45,9 +45,9 @@ const postPost = async (req, res) => {
         }
 
         const updatePost = async (res, req) => {
-                const object_to_update = res.object
+     
             try{
-                    const updated = await Posts.findOneAndUpdate({_id: req.body.id, object_to_update} )
+              const updated = await  Posts.findOneAndUpdate({_id: req.body._id},  req.body )
                     res.send({ok: true, data: 'post updated', post : updated})
             } catch(err){
 
