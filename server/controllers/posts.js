@@ -28,10 +28,10 @@ const postPost = async (req, res) => {
        
         try {
       
-            const found = await Posts.findOne(req.body.updateForm._id)
+            const found = await Posts.findOne({_id: req.body.updateForm._id})
 
             if (found){
-                removed = await Posts.deleteOne({_id: req.body.updateForm._id})
+               const  removed = await Posts.deleteOne({_id: req.body.updateForm._id})
                 if(removed.acknowledged && removed.deletedCount > 0){
                     res.send({ok: true, data: 'post deleted'})
                } else{

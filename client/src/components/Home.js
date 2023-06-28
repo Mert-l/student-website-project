@@ -9,7 +9,7 @@ const Home = () => {
   try {
     const response = await axios.get('http://localhost:4000/post/getPosts')
     console.log(response)
-setPosts(response.data)
+setPosts(response.data.reverse())
   } catch (error) {
     console.log(error);
   }
@@ -27,6 +27,7 @@ return(
   <div className = 'display_posts' >
   {
     !posts ? 
+
     <h1>no posts yet</h1> :  posts.map(ele => {
 
       return(
