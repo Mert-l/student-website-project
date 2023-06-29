@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import axios from 'axios';
 import React, {useState, useEffect} from "react";
 import CloudinaryUploadWidget from "./CloudinaryUploadWidget";
-
+import UploadImages from './UploadImages';
 function AddPost(props) {
 
     const [ post, setPost ] = useState({
@@ -14,7 +14,22 @@ function AddPost(props) {
         price: ''
 	});
 
-const [pic, setPic] = useState('');
+    const [ pic, setPic ] = useState();
+const [ pictures, setPictures ] = useState([]);
+
+useEffect(() => {
+    fetch_pictures();
+}, []);
+
+const fetch_pictures = async () => {
+    try {
+        const response = await axios.get('http://localhost:5050/pictures/get_all');
+        setPictures([ ...response.data.pictures ]);
+        console.log(pictures)
+    } catch (error) {
+        debugger;
+    }
+};
 
 
 
@@ -50,6 +65,19 @@ const [pic, setPic] = useState('');
 
     }
 
+    const cancelPosting = (e) =>{
+
+    //    if(document.getElementById('input').value &&  document.getElementById('bio').value ){
+    //     document.getElementById('input').value = '';
+    //     document.getElementById('bio').value = '';
+    //    }
+
+        setPic('')
+       
+
+
+    }
+
 
 
 
@@ -58,11 +86,11 @@ const [pic, setPic] = useState('');
     <div  className='container_post_creating' >  
       
             <div className="pic_stuff">
-                {pic=== '' ? <CloudinaryUploadWidget   setPic={setPic}  /> : <img  src={pic} />  }
-            </div>
+                {/* {pic=== '' ? <CloudinaryUploadWidget   setPic={setPic}  /> : <img id='pic' src={pic} />  } */}
+                <UploadImages fetch_pictures={fetch_pictures} />
 
             {/* {pic !== '' &&  <CloudinaryUploadWidget   setPic={setPic}  />   } */}
-
+            </div>
 
      
 
@@ -79,15 +107,15 @@ const [pic, setPic] = useState('');
 
             <div className='inputs' >
                
-                <input placeholder='title'  name='title' /> 
+                <input placeholder='title'  name='title' id='input' /> 
                 <input  id='bioo'  placeholder='description'  name='description' />
-                <input placeholder='price' name='price'  /> 
+                <input placeholder='price' name='price' id='input'  /> 
                  {/* <input placeholder='image'  name='image' />    */}
             </div>
 
             <div className='two_buttons' >
-                <button>post</button>
-                <button>save</button>
+                <button type='Submit' >post</button>
+                <button onClick={cancelPosting}  >cancel</button>
                
 
             </div>

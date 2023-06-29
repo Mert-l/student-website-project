@@ -3,7 +3,7 @@ const router     = express.Router();
 const controller = require('../controllers/pictures.controllers');
 
 router.post('/upload', controller.upload);
-// router.get('/get_all', controller.get_all);
+ router.get('/get_all', controller.get_all);
 // router.delete('/remove/:_id', controller.remove);
 
 

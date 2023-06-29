@@ -29,7 +29,7 @@ const UploadImages = (props) => {
     try {
       console.log(result);
       const response = await axios.post(
-        "http://localhost:5050/pictures/upload",
+        "http://localhost:4000/pictures/upload",
         {
           files: result.info.files,
         }
