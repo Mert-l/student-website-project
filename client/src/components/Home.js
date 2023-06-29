@@ -25,8 +25,9 @@ setPosts(response.data.reverse())
     const formatDate =(date) =>{
 
         let sliced = date.slice(0, 10).split('-').join(', ');
-        let diff = (new Date() - new Date(sliced)) / 1000 / 60 / 60 / 24 ;
-        if(diff < 1){
+        let differ = (new Date() - new Date(sliced)) / 1000 / 60 / 60 / 24 ;
+        let diff = Math.round(differ)
+        if(diff <= 1){
           return 'posted today'
         }
         else if(diff> 1){

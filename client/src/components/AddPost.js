@@ -2,6 +2,7 @@
 import { NavLink } from "react-router-dom";
 import axios from 'axios';
 import React, {useState, useEffect} from "react";
+import CloudinaryUploadWidget from "./CloudinaryUploadWidget";
 
 function AddPost(props) {
 
@@ -13,7 +14,7 @@ function AddPost(props) {
         price: ''
 	});
 
-
+const [pic, setPic] = useState('');
 
 
 
@@ -32,7 +33,7 @@ function AddPost(props) {
             const response = await axios.post('http://localhost:4000/post/post', {
 
             title: post.title,
-            image: post.image,
+            image: pic,
             price: post.price,
             description: post.description,
            userId: props.user._id
@@ -56,31 +57,44 @@ function AddPost(props) {
   return (
     <div  className='container_post_creating' >  
       
-      <div className='features' >
+            <div className="pic_stuff">
+                {pic=== '' ? <CloudinaryUploadWidget   setPic={setPic}  /> : <img  src={pic} />  }
+            </div>
+
+            {/* {pic !== '' &&  <CloudinaryUploadWidget   setPic={setPic}  />   } */}
+
+
+     
+
+       
+
+            <form className='features'  onSubmit={handleSubmit} onChange={handleChange}  >
 
             <div  className='types' >
-                <button>g</button>
-                <button>g</button>
-                <button>g</button>
-                <button>g</button>
+                <button>market</button>
+                <button>tutoring</button>
+                <button>rentals</button>
+                <button>social</button>
+            </div>
+
+            <div className='inputs' >
+               
+                <input placeholder='title'  name='title' /> 
+                <input  id='bioo'  placeholder='description'  name='description' />
+                <input placeholder='price' name='price'  /> 
+                 {/* <input placeholder='image'  name='image' />    */}
+            </div>
+
+            <div className='two_buttons' >
+                <button>post</button>
+                <button>save</button>
+               
 
             </div>
-            <form classNmae='features'  onSubmit={handleSubmit} onChange={handleChange}  >
 
-          
-                <input placeholder='image'  name='image' /> 
-                <input placeholder='title'  name='title' /> 
-                <input placeholder='description'  name='description' />
-                <input placeholder='price' name='price'  /> 
-
-                    <div className='two_buttons' >
-                        <button>post</button>
-                        <button>save</button>
-
-                    </div>
             </form>
 
-      </div>
+      
 
 
 
