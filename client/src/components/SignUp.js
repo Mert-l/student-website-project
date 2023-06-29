@@ -59,7 +59,7 @@ const SignUp = () => {
         <div className= 'box' >
             <h2 className= 'sign_in_logo'  >Sign up</h2>
 
-        <form className= 'container' onSubmit={handleSubmit} onChange={handleChange}  >
+        <form className= 'container2' onSubmit={handleSubmit} onChange={handleChange}  >
             
             <input placeholder='email' className= 'box_item' name='email'  required />
             <input placeholder='password' className= 'box_item' name='password' />

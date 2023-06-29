@@ -2,10 +2,13 @@ const Posts  = require("../models/Post")
 const Users  = require("../models/User")
 
 const postPost = async (req, res) => {
-    const { title, image, price, tags, interested, type, userId, description } = req.body;
-  debugger
-    try {
-      const user = await Users.findOne({ _id: userId });
+  const { title, image, price, tags, interested, type, userId, description } =
+  req.body;
+try {
+  if (!type) {
+    res.send({ ok: false, message: "Post type is required!" });
+  }
+  const user = await Users.findOne({ _id: userId });
       console.log(user._id);
       const created_post = await Posts.create({
         title,

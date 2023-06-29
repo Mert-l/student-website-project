@@ -1,17 +1,11 @@
-import React from "react";
-import axios from "axios";
 import widgetStyle from "./widgetStyle";
-import { useState } from "react";
 
-const UploadImages = (props) => {
+const UploadImages = ({ setPost }) => {
   const uploadWidget = () => {
-    // remember to add your credentials to the .env file
-   
     window.cloudinary.openUploadWidget(
-      
       {
-        cloud_name: 'dgqps35nt',
-        upload_preset: 'rv8pokux',
+        cloud_name: "dgqps35nt",
+        upload_preset: "rv8pokux",
         tags: ["user"],
         stylesheet: widgetStyle,
       },
@@ -19,27 +13,15 @@ const UploadImages = (props) => {
         if (error) {
           console.log(error);
         } else {
-          result.event === "queues-end" && upload_picture(result);
+          result.event === "queues-end" && set_picture(result);
         }
       }
     );
   };
 
-  const upload_picture = async (result) => {
-    try {
-      console.log(result);
-      const response = await axios.post(
-        "http://localhost:4000/pictures/upload",
-        {
-          files: result.info.files,
-        }
-      );
-      // response.data.ok
-      //   ? await props.fetch_pictures()
-      //   : alert("Something went wrong");
-    } catch (error) {
-      console.log(error);
-    }
+  const set_picture = async (result) => {
+    let images = result.info.files.map((file) => file.uploadInfo.url);
+    setPost((prevState) => ({ ...prevState, image: images }));
   };
   // function to send data to server to create a new post
   return (

@@ -78,7 +78,7 @@ const logout= () => {
 
     <Router>
         
-         {isLoggedIn ? <Nav  logout={logout}  /> : <h1 className ='sign_in_logo' >Student forum</h1>  }
+         {isLoggedIn ? <Nav  logout={logout}  /> : <h1 className ='logo' >Student forum</h1>  }
          
        <Routes>
        <Route path='/'  element={isLoggedIn ?  <Navigate to={'/Home'}/> : <Navigate to={'/LogIn'}/> }  />
