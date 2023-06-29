@@ -6,7 +6,7 @@ import Images from "./Images";
 
 function AddPost(props) {
   const [post, setPost] = useState({
-    image: "",
+    image: [],
     title: "",
     type: "",
     description: "",
@@ -58,7 +58,7 @@ function AddPost(props) {
           flexWrap: "wrap",
         }}
       >
-        {post.image ? (
+        {post.image.length >0 ? (
           <Images images={post.image} />
         ) : (
           <UploadImages setPost={setPost} />
@@ -92,7 +92,7 @@ function AddPost(props) {
             onChange={handleChangeTag}
             value={tag}
           />
-          <button
+           <button
             type="button"
             onClick={() => {
                 if(post.tags.length >0) {

@@ -57,7 +57,7 @@ return(
         <div className = 'post' >
             
           <div className='post_inside' >   
-          {ele.image ? <img src= {ele.image}/> : null  }
+          {ele.image.length >0 ? <img src= {ele.image[0]}/> : null  }
           <div className='post_text' >
           <h3> {ele.title} </h3>
            

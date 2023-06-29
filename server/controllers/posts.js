@@ -7,7 +7,7 @@ const postPost = async (req, res) => {
 try {
   if (!type) {
     res.send({ ok: false, message: "Post type is required!" });
-  }
+  } else{ 
   const user = await Users.findOne({ _id: userId });
       console.log(user._id);
       const created_post = await Posts.create({
@@ -21,6 +21,7 @@ try {
         description
       });
       res.send({ ok: true, data: " post created", post: created_post });
+      }
     } catch (error) {
       res.send(error);
     }
