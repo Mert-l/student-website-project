@@ -1,4 +1,4 @@
-
+import { IoIosArrowForward } from 'react-icons/IoIos';
 import React, { useState, useEffect } from "react";
 
 function ImageSlide(props) {
@@ -17,7 +17,7 @@ const [idx, setIdx] = useState(0)
 
          <img  src={image.image[idx]} />
 
-        {image.image.length > 1 && <button id='right'  type='button' onClick={ () =>  idx !=image.image.length -1 &&  setIdx(idx+1)  }  > r </button>}
+        {image.image.length > 1 && <button id='right'  type='button' onClick={ () =>  idx !=image.image.length -1 &&  setIdx(idx+1)  }  >  {IoIosArrowForward}  </button>}
 
 </div>
 
