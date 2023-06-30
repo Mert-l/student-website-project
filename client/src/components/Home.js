@@ -1,9 +1,12 @@
 
 import axios from "axios";
-
+import { useNavigate } from "react-router-dom";
 import React, {useState, useEffect} from "react";
+import ImageSlide from "./ImageSlide";
 
 const Home = () => {
+  const navigate = useNavigate();
+
  const [posts, setPosts] = useState(null);
 
  const fetchPosts = async () => {
@@ -54,23 +57,50 @@ return(
 
       return(
     
-        <div className = 'post' >
+      <div>
+
+        {ele.image.length >0 ? 
+        
+        <div className = 'post'    >
             
-          <div className='post_inside' >   
-          {ele.image.length >0 ? <img src= {ele.image[0]}/> : null  }
-          <div className='post_text' >
-          <h3> {ele.title} </h3>
-           
-            {ele.description && <h5> {ele.description} </h5> }
-              <div  className='price_interested'>
+        <div className='post_inside' >   
+        
+          <ImageSlide   arr={ele.image}   /> 
+
+        
+        <div className='post_text' >
+             <h3> {ele.title} </h3>
+              {ele.description && <h5> {ele.description} </h5> }
+               <div  className='price_interested'>
                 {ele.price ? <h5> {ele.price}€ </h5> : null }
                 <h5>Interested: {ele.interested.length}  </h5>
                 <h5>  {  formatDate(ele.createdAt)   }  </h5>
-              </div>
-          </div>
-            
-             </div>
+            </div>
+        </div>
           
+           </div>
+    </div> : 
+
+              <div className="post" >
+
+<div className='post_text' >
+         <h3> {ele.title} </h3>
+          {ele.description && <h5> {ele.description} </h5> }
+           <div  className='price_interested'>
+            {ele.price ? <h5> {ele.price}€ </h5> : null }
+            <h5>Interested: {ele.interested.length}  </h5>
+            <h5>  {  formatDate(ele.createdAt)   }  </h5>
+        </div>
+    </div>
+
+
+              </div>
+
+      
+      
+      }
+
+
 
       </div>
     
@@ -81,16 +111,7 @@ return(
   
 </div>
 
-
-
-
 )
-
-
-
-
-
-
 
   
 };

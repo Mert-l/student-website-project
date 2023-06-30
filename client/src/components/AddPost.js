@@ -36,28 +36,20 @@ function AddPost(props) {
         type: post.type,
         description: post.description,
         userId: props.user._id,
+        tags: post.tags
       });
+      
       navigate("/");
       console.log("post response:", response);
     } catch (err) {
       console.log(err);
     }
+    console.log('seeeeeeeee: ', post )
   };
 
   return (
-    <div className="container_post_creating">
-      <div
-        className="pic_stuff"
-        style={{
-          minWidth: "50%",
-          margin: "auto",
-          display: "grid",
-          gridTemplateColumns: `${
-            post.image && post.image.length > 1 ? "1fr 1fr" : "1fr"
-          }`,
-          flexWrap: "wrap",
-        }}
-      >
+    <div className="post_container3">
+      <div className="pic_stuff3" >
         {post.image.length >0 ? (
           <Images images={post.image} />
         ) : (
@@ -66,26 +58,31 @@ function AddPost(props) {
       </div>
 
       <form
-        className="features"
+        className="features3"
         onSubmit={handleSubmit}
         onChange={handleChange}
       >
         <div className="inputs">
           <select name="type" required>
-            <option>---Choose type---</option>
+            <option vlaue='initial' >---Choose type---</option>
             <option value="market">market</option>
             <option value="tutoring">tutoring</option>
             <option value="rentals">rentals</option>
             <option value="social">social</option>
           </select>
-          <input placeholder="title" name="title" id="input" required />
+          <input placeholder="title" name="title" id="input" required value={post.title} />
           <input
             id="bioo"
             placeholder="description"
             name="description"
+            value={post.description}
             required
           />
-          {post.tags && post.tags.map((tag) => <span>{tag}</span>)}
+          <div className="tags" >
+          {post.tags && post.tags.map((tag) => <h4 >{tag}</h4>)}
+          </div>
+
+      
           <input
             name="tags"
             type="text"
@@ -93,8 +90,10 @@ function AddPost(props) {
             value={tag}
           />
            <button
+           
             type="button"
             onClick={() => {
+                debugger
                 if(post.tags.length >0) {
                         setPost((prevState) => ({
                 ...prevState,
@@ -114,6 +113,9 @@ function AddPost(props) {
           >
             Add tag
           </button>
+
+        
+
           {post.type && post.type !== "social" && (
             <input placeholder="price" name="price" id="input" type="number" />
           )}
@@ -128,6 +130,8 @@ function AddPost(props) {
                 title: "",
                 description: "",
                 price: "",
+                tags: [],
+                type: 'initial',  /// heeere
               })
             }
             type="button"

@@ -9,6 +9,7 @@ import SignUp from './components/SignUp';
 import Profile from './components/Profile';
 import DropDown from './components/DropDown';
 import AddPost from './components/AddPost';
+import IndividualPostPage from './components/IndividualPostPage';
 import axios from 'axios';
 // import React from "react";
 import React, { useState, useEffect } from "react";
@@ -92,7 +93,8 @@ const logout= () => {
          {/* <Route path="/addPost" element={<AddPost   user={user} />} /> */}
          <Route path="/addPost"    element={!isLoggedIn ? <Navigate to="/LogIn" /> : <AddPost user={user} />}  /> 
          
-         <Route path="/profile" element={<Profile  user={user} setUser_fromApp={setUser}  />} />             
+         <Route path="/profile" element={<Profile  user={user} setUser_fromApp={setUser}  />} />  
+         <Route path="/IndividualPostPage" element={<IndividualPostPage   />} />             
 
   
        </Routes>
