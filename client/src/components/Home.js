@@ -45,10 +45,7 @@ setPosts(response.data.reverse())
 
     }
 
-    const go =() =>{
-      onClick={() => navigate("/IndividualPostPage", {state:{ele}})}
-
-    }
+  
 
 
 
@@ -66,7 +63,7 @@ return(
 
         {ele.image.length >0 ? 
         
-        <ImageSlide  dat={ele}  formatDate={formatDate}  go = {}  />
+        <ImageSlide  dat={ele}  formatDate={formatDate}  onClick={this.handleClick}  />
 
         
 

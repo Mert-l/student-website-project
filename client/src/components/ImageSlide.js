@@ -1,9 +1,10 @@
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function ImageSlide(props) {
-
+  const navigate = useNavigate();
 const image = props.dat;
 const formatDate = props.formatDate;
 const [idx, setIdx] = useState(0)
@@ -16,14 +17,18 @@ const [idx, setIdx] = useState(0)
    
         {image.image.length > 1 && <button id='left' type='button' onClick={  () => idx !=0 &&  setIdx(idx-1)  } >  <AiOutlineArrowLeft className='iconss' />  </button>}
 
-         <img  src={image.image[idx]} />
+         <img  src={image.image[idx]}    onClick={() =>
+          navigate("/IndividualPostPage", { state: { ele: image } })
+        }  />
 
         {image.image.length > 1 && <button id='right'  type='button' onClick={ () =>  idx !=image.image.length -1 &&  setIdx(idx+1)  }  >  <AiOutlineArrowRight className='iconss' /> </button>}
 
 </div>
 
 
-<div className='post_text' >
+<div className='post_text'    onClick={() =>
+          navigate("/IndividualPostPage", { state: { ele: image } })
+        }  >
      <h3> {image.title} </h3>
       {image.description && <h5> {image.description} </h5> }
        <div  className='price_interested'>
