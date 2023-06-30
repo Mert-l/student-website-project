@@ -767,3 +767,12 @@ grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   background-color: rgb(237, 237, 237);
   margin-bottom: 10%;
 }
+
+.one_post{
+  border: solid thin;
+  width: 40%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+
+}
