@@ -63,7 +63,7 @@ return(
 
         {ele.image.length >0 ? 
         
-        <ImageSlide  dat={ele}  formatDate={formatDate}  onClick={this.handleClick}  />
+        <ImageSlide  dat={ele}  formatDate={formatDate}   />
 
         
 
