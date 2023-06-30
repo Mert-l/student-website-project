@@ -85,10 +85,10 @@ const logout= () => {
        <Route path='/'  element={isLoggedIn ?  <Navigate to={'/Home'}/> : <Navigate to={'/LogIn'}/> }  />
          <Route path="/home"    element={!isLoggedIn ? <Navigate to="/LogIn" /> : <Home />}  />
          <Route path="/marketplace" element={<Marketplace />} />
-
-         {/* <Route path="/tutoring" element={<Tutoring />} />
-         <Route path="/rentals" element={<Rentals />} />
-         <Route path="/social" element={<Social />} />  */}
+ <Route path="/rent" element={<Rentals />} />
+<Route path="/tutoring" element={<Tutoring />} />
+<Route path="/social" element={<Social />} /> 
+    
          <Route path="/login" element={isLoggedIn ? <Navigate to='/Home'/> : <LogIn  login={login} /> } />
          <Route path="/register" element={<SignUp />} />  
          {/* <Route path="/addPost" element={<AddPost   user={user} />} /> */}

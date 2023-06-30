@@ -92,8 +92,22 @@ try {
               }
               }
 
+              const getTypePost = async(req, res) => {
+                const {type} = req.body;
+                try{
+                  const post =await Posts.find({type})
+                  res.send(post)
+
+                }catch (error) {
+                  res.send(error)
+              }
+
+
+
+              }
 
 
 
 
-    module.exports = {postPost, deletePost, updatePost, likePost, getPost, getUserPost}
+
+    module.exports = {postPost, deletePost, updatePost, likePost, getPost, getUserPost, getTypePost}

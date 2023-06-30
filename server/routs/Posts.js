@@ -8,6 +8,7 @@ router.post("/updatePost", controlfile.updatePost)
  router.post("/likePost", controlfile.likePost)
  router.get("/getPosts", controlfile.getPost)
  router.post("/getUserPosts", controlfile.getUserPost)
+ router.post("/getTypePosts", controlfile.getTypePost)
 
 
 
