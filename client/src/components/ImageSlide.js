@@ -3,25 +3,40 @@ import React, { useState, useEffect } from "react";
 
 function ImageSlide(props) {
 
-const images = props.arr;
+const image = props.dat;
+const formatDate = props.formatDate;
 const [idx, setIdx] = useState(0)
 
   return (
-    <div className="slide" >
-        
-        
 
-        
-            {images.length > 1 && <button id='left' type='button' onClick={  () => idx !=0 &&  setIdx(idx-1)  } > l </button>}
+<div className="one_post" >
 
-    <img  src={images[idx]} />
+<div className="slide" >
+   
+        {image.image.length > 1 && <button id='left' type='button' onClick={  () => idx !=0 &&  setIdx(idx-1)  } > l </button>}
 
-            {images.length > 1 && <button id='right'  type='button' onClick={ () =>  idx !=images.length -1 &&  setIdx(idx+1)  }  > r </button>}
+         <img  src={image.images[idx]} />
+
+        {image.image.length > 1 && <button id='right'  type='button' onClick={ () =>  idx !=image.image.length -1 &&  setIdx(idx+1)  }  > r </button>}
+
+</div>
 
 
-
-
+<div className='post_text' >
+     <h3> {image.title} </h3>
+      {image.description && <h5> {image.description} </h5> }
+       <div  className='price_interested'>
+        {image.price ? <h5> {image.price}€ </h5> : null }
+        <h5>Interested: {image.interested.length}  </h5>
+        <h5>  {  formatDate(image.createdAt)   }  </h5>
     </div>
+</div>
+
+
+
+
+</div>
+
   )
 }
 

@@ -173,7 +173,7 @@ const Profile = (props) => {
       )}
 
 {open && (
-        <ReactModalInput open={open} toggle={toggle} modalPosts={modalPosts} />
+        <ReactModalInput fetchPosts={fetchPosts} open={open} toggle={toggle} modalPosts={modalPosts} />
       )}
     </div>
   );

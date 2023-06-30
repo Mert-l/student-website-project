@@ -61,26 +61,15 @@ return(
 
         {ele.image.length >0 ? 
         
-        
-            
-        <div className='post_inside' >   
-        <ImageSlide  arr={ele.image} />
+        <ImageSlide  dat={ele}  formatDate={formatDate} />
 
         
-        <div className='post_text'  onClick={() => navigate("/IndividualPostPage", {state:{ele}})} >
-             <h3> {ele.title} </h3>
-              {ele.description && <h5> {ele.description} </h5> }
-               <div  className='price_interested'>
-                {ele.price ? <h5> {ele.price}€ </h5> : null }
-                <h5>Interested: {ele.interested.length}  </h5>
-                <h5>  {  formatDate(ele.createdAt)   }  </h5>
-            </div>
-        </div>
-          
-          
-    </div> : 
 
-              <div className="post" >
+        
+
+          : 
+
+              
 
 <div className='post_text' >
          <h3> {ele.title} </h3>
@@ -93,7 +82,7 @@ return(
     </div>
 
 
-              </div>
+            
 
       
       

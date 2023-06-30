@@ -2,10 +2,12 @@ import Modal from "react-modal";
 import { FaInfoCircle } from "react-icons/fa";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 Modal.setAppElement("#root");
 
-function ReactModalInfo({ open, toggle, modalPosts }) {
+function ReactModalInfo({ open, toggle, modalPosts, fetchPosts }) {
+  const navigate = useNavigate();
   const [dis, setDis] = useState(true);
   const [updateForm, setUpdateForm] = useState({ ...modalPosts });
 
@@ -17,10 +19,12 @@ const delete_post = async () => {
     
         console.log('triggersd delete function')
 try{
-debugger
+
 const response = await axios.post("http://localhost:4000/post/deletePost", {
         updateForm });
         console.log(  'deleted:   ' ,  response);
+      fetchPosts()
+      toggle("close")
 
 
 } catch(err)  {
@@ -42,6 +46,8 @@ const response = await axios.post("http://localhost:4000/post/deletePost", {
         updateForm
       );
       console.log("maybe updated: ", response);
+      fetchPosts()
+      toggle("close")
     } catch (err) {
       console.log(err);
     }
@@ -54,61 +60,73 @@ const response = await axios.post("http://localhost:4000/post/deletePost", {
           isOpen={open}
           onRequestClose={() => toggle("close")}
           contentLabel="Info"
-          className="myModal"
+         // className="myModal"
+          className='post_container4'
         >
-          <div>
-            <p>delete or update {updateForm.title} </p>
+
+{/* 
+          <div className="two_btns" >
+           
             <button
               onClick={() => toggle("React-Modal-Info")}
               className="close info"
             >
               x
             </button>
-          </div>
-          <div>
+       
             <button
               className="submit ok"
               onClick={() => toggle("React-Modal-Info")}
             >
               Confirm
             </button>
-          </div>
+          </div> */}
 
-          <div className="container_post_creating">
-            <button className="" onClick={() => setDis(!dis)}>
-              Modify
-            </button>
 
-            <div className="features">
-              <div className="types">
-                <button>sell</button>
-                <button>tutoring</button>
-                <button>rentals</button>
-                <button>social</button>
-              </div>
+          <div className="container_post_updating">
+        
+
+         
+            
               <form
-                classNmae="features"
+                className="features4"
                 onSubmit={handleSubmit}
                 onChange={handleChange}
               >
-                <input
-                  placeholder="image"
-                  name="image"
-                  value={updateForm.image && updateForm.image}
-                  disabled={dis}
-                />
+
+<div className="two_btns" >
+           
+           <button
+             onClick={() => toggle("React-Modal-Info")}
+             className="close info"
+           >
+             x
+           </button>
+      
+           <button
+             className="submit ok"
+             onClick={handleSubmit}
+           >
+             Confirm
+           </button>
+         </div>
+
+              
                 <input
                   placeholder="title"
                   name="title"
                   value={updateForm.title && updateForm.title}
                   disabled={dis}
                 />
+
                 <input
                   placeholder="description"
                   name="description"
+                  id='bio_input'
                   value={updateForm.description && updateForm.description}
                   disabled={dis}
                 />
+
                 <input
                   placeholder="price"
                   name="price"
@@ -116,17 +134,29 @@ const response = await axios.post("http://localhost:4000/post/deletePost", {
                   disabled={dis}
                 />
 
-                <div className="two_buttons">
-                  <button>save</button>
-                
-                </div>
+                 
+            
               </form>
-                <button onClick={delete_post}  >delete post</button>
+
+             
+              
             </div>
-          </div>
+
+  <div className='del_save' >
+  <button className="" onClick={() => setDis(!dis)}>
+              Modify
+            </button>
+                    <button onClick={delete_post}   >delete post</button>
+              </div>
+
+    
+          
+
         </Modal>
       )}
     </>
+
+
   );
 }
 
