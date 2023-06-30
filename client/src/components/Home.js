@@ -45,6 +45,11 @@ setPosts(response.data.reverse())
 
     }
 
+    const go =() =>{
+      onClick={() => navigate("/IndividualPostPage", {state:{ele}})}
+
+    }
+
 
 
 return(
@@ -61,7 +66,7 @@ return(
 
         {ele.image.length >0 ? 
         
-        <ImageSlide  dat={ele}  formatDate={formatDate} />
+        <ImageSlide  dat={ele}  formatDate={formatDate}  go = {}  />
 
         
 
@@ -71,7 +76,7 @@ return(
 
               
 
-<div className='post_text' >
+<div className='post_text' onClick={() => navigate("/IndividualPostPage", {state:{ele}})}  >
          <h3> {ele.title} </h3>
           {ele.description && <h5> {ele.description} </h5> }
            <div  className='price_interested'>

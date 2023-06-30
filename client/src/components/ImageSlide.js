@@ -1,4 +1,5 @@
-import { IoIosArrowForward } from 'react-icons/IoIos';
+import { AiOutlineArrowRight } from 'react-icons/ai';
+import { AiOutlineArrowLeft } from 'react-icons/ai';
 import React, { useState, useEffect } from "react";
 
 function ImageSlide(props) {
@@ -13,11 +14,11 @@ const [idx, setIdx] = useState(0)
 
 <div className="slide" >
    
-        {image.image.length > 1 && <button id='left' type='button' onClick={  () => idx !=0 &&  setIdx(idx-1)  } > l </button>}
+        {image.image.length > 1 && <button id='left' type='button' onClick={  () => idx !=0 &&  setIdx(idx-1)  } >  <AiOutlineArrowLeft className='iconss' />  </button>}
 
          <img  src={image.image[idx]} />
 
-        {image.image.length > 1 && <button id='right'  type='button' onClick={ () =>  idx !=image.image.length -1 &&  setIdx(idx+1)  }  >  {IoIosArrowForward}  </button>}
+        {image.image.length > 1 && <button id='right'  type='button' onClick={ () =>  idx !=image.image.length -1 &&  setIdx(idx+1)  }  >  <AiOutlineArrowRight className='iconss' /> </button>}
 
 </div>
 
