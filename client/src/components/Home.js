@@ -57,18 +57,17 @@ return(
 
       return(
     
-      <div>
+      <div className = 'post'  >
 
         {ele.image.length >0 ? 
         
-        <div className = 'post'    >
+        
             
         <div className='post_inside' >   
-        
-          <ImageSlide   arr={ele.image}   /> 
+        <ImageSlide  arr={ele.image} />
 
         
-        <div className='post_text' >
+        <div className='post_text'  onClick={() => navigate("/IndividualPostPage", {state:{ele}})} >
              <h3> {ele.title} </h3>
               {ele.description && <h5> {ele.description} </h5> }
                <div  className='price_interested'>
@@ -78,7 +77,7 @@ return(
             </div>
         </div>
           
-           </div>
+          
     </div> : 
 
               <div className="post" >

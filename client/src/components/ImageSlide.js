@@ -10,15 +10,15 @@ const [idx, setIdx] = useState(0)
     <div className="slide" >
         
         
-<div className='ims'> 
+
         
-            <button type='button' onClick={  () => idx !=0 &&  setIdx(idx-1)  } > l </button>
+            {images.length > 1 && <button id='left' type='button' onClick={  () => idx !=0 &&  setIdx(idx-1)  } > l </button>}
 
     <img  src={images[idx]} />
 
-            <button type='button' onClick={ () =>  idx !=images.length -1 &&  setIdx(idx+1)  }  > r </button>
+            {images.length > 1 && <button id='right'  type='button' onClick={ () =>  idx !=images.length -1 &&  setIdx(idx+1)  }  > r </button>}
 
-        </div>
+
 
 
     </div>
