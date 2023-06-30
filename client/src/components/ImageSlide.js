@@ -15,7 +15,7 @@ const [idx, setIdx] = useState(0)
    
         {image.image.length > 1 && <button id='left' type='button' onClick={  () => idx !=0 &&  setIdx(idx-1)  } > l </button>}
 
-         <img  src={image.images[idx]} />
+         <img  src={image.image[idx]} />
 
         {image.image.length > 1 && <button id='right'  type='button' onClick={ () =>  idx !=image.image.length -1 &&  setIdx(idx+1)  }  > r </button>}
 
