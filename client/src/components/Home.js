@@ -5,7 +5,10 @@ import React, {useState, useEffect} from "react";
 import ImageSlide from "./ImageSlide";
 
 const Home = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate();      
+
+
+  
 
  const [posts, setPosts] = useState(null);
 
@@ -75,7 +78,8 @@ return(
 
 <div className='post_text' onClick={() => navigate("/IndividualPostPage", {state:{ele}})}  >
          <h3> {ele.title} </h3>
-          {ele.description && <h5> {ele.description} </h5> }
+         
+          {ele.description.length > 140 ? <h5> {ele.description.substring(0, 140) + '. . .'} </h5> :  <h5> {ele.description} </h5>  }
            <div  className='price_interested'>
             {ele.price ? <h5> {ele.price}€ </h5> : null }
             <h5>Interested: {ele.interested.length}  </h5>

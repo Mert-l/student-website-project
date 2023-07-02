@@ -199,6 +199,7 @@ align-items: center;
   margin-top: 4%;
  /* height: 70%; */
  position:relative;
+ height: 500px;
 
 }
 
@@ -239,7 +240,7 @@ height:50%;
   margin-left:auto;
   margin-right: auto;
   margin-bottom: 10%;
-  width:75%;
+  width:85%;
   height: 100%;
 
 }
@@ -248,6 +249,21 @@ height:50%;
   display: flex;
   justify-content: space-around;
   align-items: center;
+
+
+    
+      background-color: rgb(251, 247, 247);
+      box-shadow: 1px 7px 12px 1px rgba(0, 0, 0, 0.5);
+      border-radius: 20px;
+      margin-top: 2%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 10%;
+      width: 80%;
+      height: 80vh;
+      display: flex;
+     
+      align-items: center;
   
 }
 
@@ -277,14 +293,14 @@ height:50%;
   margin-left:2%;
 }
 
-.bio_and_stuff input{
+/* .bio_and_stuff input{
   width:80%;
   margin: 7%;
   padding: 1.5%;
   margin-right:50%;
   margin-right: auto;
 
-}
+} */
 
 .container_post_creating{
   display: flex;
@@ -379,7 +395,7 @@ justify-content: space-between;
 .display_posts2{
 
 display:grid;
-grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
 
 }
 
@@ -425,7 +441,7 @@ grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
  }
 
   .slides_maybe{
-    margin-top: 10%;
+    margin-top: 5%;
     margin-left:5%;
     width:50%;
     height: 80%;
@@ -447,9 +463,10 @@ grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   }
 
   .post_rest button{
-    margin-left:76%;
-    padding:2%;
-    width: 25%;
+    /* margin-left:76%; */
+    padding:1.7%;
+    margin-bottom:4%;
+    width: 40%;
     border-radius: 15px;
     color:rgb(29, 29, 103);
     border: solid rgb(31, 31, 106);
@@ -475,6 +492,7 @@ grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   .slides_maybe img{
     width:80%;
     height: 70%;
+    border-radius: 15px;
   }
 
   #theType {
@@ -496,7 +514,7 @@ grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
     margin-right: auto;
     margin-bottom: 10%;
     width:50%;
-    height: 65vh;
+    height: 75vh;
     display:flex;
     align-items: center;
     justify-content: center;
@@ -512,13 +530,14 @@ grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   }
 
   .post_rest2 button{
-    margin-left:76%;
+    /* margin-left:76%; */
     padding:2%;
     width: 25%;
     border-radius: 15px;
     color:rgb(29, 29, 103);
     border: solid rgb(31, 31, 106);
     background-color: rgb(245, 248, 255);
+    margin-bottom: 5%;
   }
 
     /* add post */
@@ -592,10 +611,26 @@ grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
         width: 100%;
       }
 
-/* .slide{
-  height: 400px;
-  width:400px;
-} */
+
+    /* added height to slide---------------------- */
+
+.slide{
+  height: 50%;
+  width:100%;
+}
+
+.slide2{
+  height: 50%;
+
+  
+}
+
+.slide2 img{
+  width:100%;
+  height:100%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
 
 /* .slide img{
   height:70%;
@@ -609,19 +644,29 @@ grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
 .imagesToUpload{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-gap: 2rem;
 }
 
 .imagesToUpload img{
   width:15%;
-  height: 120%;
-  padding: 3%;;
+  height: 50%;
+  /* padding: 3%;; */
+  border-radius: 15px;
 }
+
+/* .imagesToUpload_many img{
+  width:15%;
+  height: 50%;
+  padding: 3%;;
+  border-radius: 15px;
+} */
 
 .img_box{
   height: 100%;
 }
 
 #left{
+
   position:absolute;
   height: 48%;
   width:10%;
@@ -643,6 +688,8 @@ border:none;
 .slide img{
   width:100%;
   height:100%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
 .post_element{
@@ -655,7 +702,7 @@ border:none;
 .display_posts{
   margin: 5%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   grid-gap: 150px;
   /* display: flex;
   flex-wrap: wrap; */
@@ -679,7 +726,7 @@ border:none;
   margin-left:auto;
   margin-right: auto;
   margin-bottom: 10%;
-  width:80%;
+  width:60%;
   height: 80vh;
   display:flex;
   flex-direction: column;
@@ -701,6 +748,23 @@ border:none;
     color:rgb(29, 29, 103);
     border: solid rgb(31, 31, 106);
     background-color: rgb(237, 237, 237);
+  }
+
+  .two_btns_modal{
+    display: flex;
+    justify-content: space-between;
+    width: 110%;
+    padding:2%;
+    
+  }
+
+  .two_btns_modal button{
+    padding:1%;
+    width: 14%;
+    border-radius: 15px;
+    color:rgb(29, 29, 103);
+    border: solid rgb(31, 31, 106);
+    background-color: rgb(181, 46, 46);
   }
 
   .container_post_updating{
@@ -775,6 +839,7 @@ border:none;
   background-color: rgb(237, 237, 237);
   margin-bottom: 10%;
 }
+/* added height to one_post----------------------------- */
 
 .one_post{
   border: thin;
@@ -783,7 +848,7 @@ border:none;
   display: flex;
   flex-direction: column;
   border-radius: 30px;
-
+  /* height:400px;             */
 }
 
 .iconss{
@@ -795,9 +860,111 @@ width:80%;
 
 .bio_and_stuff input{
   height:10%;
-  width: 100%;
+  width: 80%;
   border-radius: 10px;
   border: thin ;
-  box-shadow: 1px 4px 5px 1px rgba(37, 26, 105, 0.5); 
+  box-shadow: 1px 4px 5px 1px rgba(62, 61, 65, 0.5); 
   margin:8%;
+}
+
+.twee{
+height: 5%;
+display: flex;
+justify-content: space-between;
+
+}
+.twee2{
+  align-items: center;
+  height: 5%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#back_btn{
+margin-left: 4%;
+    padding: 1%;
+    width: 25%;
+    border-radius: 15px;
+    color: rgb(29, 29, 103);
+    border: solid rgb(31, 31, 106);
+    background-color: rgb(245, 248, 255);
+    margin-bottom: 5%;
+}
+
+.back{
+  padding: 1%;
+    width: 26%;
+    border-radius: 15px;
+    color: rgb(29, 29, 103);
+    border: solid rgb(31, 31, 106);
+    background-color: rgb(245, 248, 255);
+    margin-bottom: 5%;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+}
+.back2{
+  padding: 1%;
+    width: 40%;
+    border-radius: 15px;
+    color: rgb(29, 29, 103);
+    border: solid rgb(31, 31, 106);
+    background-color: rgb(245, 248, 255);
+    margin-bottom: 5%;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+}
+
+#left2{
+  position:absolute;
+  height: 70%;
+  width:10%;
+  background-color:transparent;
+  border:none;
+  
+}
+
+#right2{
+  position: absolute;
+  right: 0;
+  height: 70%;
+  width: 10%;
+  background-color: transparent;
+  border: none;
+  
+}
+
+
+.slide_for_single_post_page{
+  
+    height: 60%;
+    width:100%;
+    position:absolute;
+    width: 30%;
+   
+
+}
+.slide_for_single_post_page img{
+  width:100%;
+  height: 70%;
+  border-radius: 15px;
+  
+}
+
+.iconss2{
+  color: white;
+  height: 40%;
+  width:100%;
+  
+  }
+
+  #bioo2{
+    height: 100px;
+    margin-bottom: 20%;
+  }
+.mod_icon{
+ height: 25px;
+  width: 25px;
+  color: rgb(21, 12, 71);
 }

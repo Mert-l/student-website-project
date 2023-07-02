@@ -30,7 +30,7 @@ const [idx, setIdx] = useState(0)
           navigate("/IndividualPostPage", { state: { ele: image } })
         }  >
      <h3> {image.title} </h3>
-      {image.description && <h5> {image.description} </h5> }
+      {image.description && <h5> {image.description.substring(0, 130) + '. . .' } </h5> }
        <div  className='price_interested'>
         {image.price ? <h5> {image.price}€ </h5> : null }
         <h5>Interested: {image.interested.length}  </h5>

@@ -94,7 +94,7 @@ const response = await axios.post("http://localhost:4000/post/deletePost", {
                 onChange={handleChange}
               >
 
-<div className="two_btns" >
+<div className="two_btns_modal" >
            
            <button
              onClick={() => toggle("React-Modal-Info")}

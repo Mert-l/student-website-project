@@ -84,8 +84,8 @@ const logout= () => {
        <Routes>
        <Route path='/'  element={isLoggedIn ?  <Navigate to={'/Home'}/> : <Navigate to={'/LogIn'}/> }  />
          <Route path="/home"    element={!isLoggedIn ? <Navigate to="/LogIn" /> : <Home />}  />
-         <Route path="/marketplace" element={<Marketplace />} />
- <Route path="/rent" element={<Rentals />} />
+         <Route path="/market" element={<Marketplace />} />
+ <Route path="/rentals" element={<Rentals />} />
 <Route path="/tutoring" element={<Tutoring />} />
 <Route path="/social" element={<Social />} /> 
     

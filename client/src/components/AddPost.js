@@ -51,7 +51,7 @@ function AddPost(props) {
     <div className="post_container3">
       <div className="pic_stuff3" >
         {post.image.length >0 ? (
-          <Images images={post.image} />
+          <Images images={post.image}   />
         ) : (
           <UploadImages setPost={setPost} />
         )}

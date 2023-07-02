@@ -10,7 +10,8 @@ const userSchema = new mongoose.Schema({
   //degree : [{level: {type:String}}, {degree_name: {type:String}},  {sclool: {type:String}},],
   degree: {type: String},
   pic: {type: String},
-  bio: { type: String}
+  bio: { type: String},
+  profile: {type: String}
 })
 
 

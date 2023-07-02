@@ -21,7 +21,7 @@ return (
       </NavLink>
 
       <NavLink  className = 'single'
-        to={"/marketplace"}>
+        to={"/market"}>
         Market
       </NavLink>
 
@@ -31,7 +31,7 @@ return (
       </NavLink>
 
       <NavLink  className = 'single'
-          to={"/rent"}>
+          to={"/rentals"}>
         Rentals
       </NavLink>
 
