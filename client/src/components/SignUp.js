@@ -43,7 +43,7 @@ const SignUp = () => {
 				setTimeout(() => {
 					
                     navigate('/login');
-				}, 7000);
+				}, 3000);
 			}
 
          console.log(response)
@@ -62,7 +62,7 @@ const SignUp = () => {
         <form className= 'container2' onSubmit={handleSubmit} onChange={handleChange}  >
             
             <input placeholder='email' className= 'box_item' name='email'  required />
-            <input placeholder='password' className= 'box_item' name='password' />
+            <input placeholder='password' type='password' className= 'box_item' name='password' />
             <input placeholder='repeat password' className= 'box_item' name= 'password_repeat' />
             <input placeholder='username' className= 'box_item' name= 'username' />
             <input placeholder='city' className= 'box_item' name= 'city' />

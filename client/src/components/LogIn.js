@@ -34,7 +34,7 @@ try{
             console.log(response.data.token)
             setTimeout( () => {
                 props.login(response.data.token)
-            }, 2000 )
+            }, 1500 )
 
       } else{
         console.log(response.data.data)

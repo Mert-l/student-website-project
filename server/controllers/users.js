@@ -21,7 +21,10 @@ const registerUser= async (req,res) =>{
        res.send({ok: false, data: 'this name is taken'})
     } else if(!username || !email || !password || !city || !password_repeat){
         res.send({ok:false, data:'all fields requirded'})
-    }
+    }   else if (!validator.isEmail(email)) {
+        return res.json({ ok: false, data: "Invalid email provided" });
+      }
+
     
     
     else if (!found_name && !found_mail){

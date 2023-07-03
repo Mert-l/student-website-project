@@ -76,7 +76,7 @@ return(
 
               
 
-<div className='post_text' onClick={() => navigate("/IndividualPostPage", {state:{ele}})}  >
+<div className='post_text' onClick={() => navigate("/IndividualPostPage", {state:{ele}})   }  >
          <h3> {ele.title} </h3>
          
           {ele.description.length > 140 ? <h5> {ele.description.substring(0, 140) + '. . .'} </h5> :  <h5> {ele.description} </h5>  }

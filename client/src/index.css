@@ -565,7 +565,7 @@ grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
     color:rgb(255, 255, 255);
     border: solid rgb(31, 31, 106);
     background-color: rgb(57, 61, 135);
-    width:20%;
+ 
     display: flex;
     justify-content: center;
     padding: 2%;
@@ -1125,6 +1125,7 @@ margin-left: 4%;
   height: 20%;
   justify-content: space-between;
   align-items: center;
+  margin-left:30%;
 }
 
 #button_for_profile_picc{
@@ -1135,6 +1136,7 @@ color:rgb(18, 13, 115);
   border-radius: 20px;
   box-shadow: 1px 4px 5px 1px rgba(142, 141, 143, 0.5); 
   border-color:rgb(12, 14, 64);
+  margin-left:50%;
 }
 
 #button_for_profile_picc:hover{
@@ -1145,6 +1147,7 @@ color:rgb(18, 13, 115);
   border-radius: 20px;
   box-shadow: 1px 4px 5px 1px rgba(142, 141, 143, 0.5); 
   border-color:rgb(12, 14, 64);
+  margin-left:50%;
 }
 #button_for_profile_picc:active{
   background-color: rgb(12, 14, 64);
@@ -1154,6 +1157,7 @@ color:rgb(249, 249, 249);
   border-radius: 20px;
   box-shadow: 1px 4px 5px 1px rgba(142, 141, 143, 0.5); 
   border-color:rgb(12, 14, 64);
+  margin-left:50%;
 }
 
 
@@ -1231,4 +1235,11 @@ color:rgb(249, 249, 249);
 
 .user_info_rest{
   width:50%;
+}
+
+.container2 h5{
+  color:white;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 100;
 }

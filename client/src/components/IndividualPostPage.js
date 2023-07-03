@@ -85,7 +85,7 @@ const goBack =(type) =>{
                       <h3 id='theType'  >   {type} </h3> 
 
                               {user && <div     className='yhh' >
-                                    <img  src={user.profile}  onClick={() => navigate('/ViewProfile',  {state:user})  } className = 'profile_button'  />
+                                    <img  src={user.profile}  onClick={() => navigate('/ViewProfile',  {state:{user}})  } className = 'profile_button'  />
                                     <h5> {user.username} </h5>
 
                            </div>  
@@ -105,7 +105,7 @@ const goBack =(type) =>{
                       <div className="tags" > {tags.map(ele => <h4> {ele} </h4>)  } </div>
                       <div className='twee2'>
                    
-                          <NavLink className= 'back2'  to={goBack(type)}> Go back   </NavLink> 
+                          <NavLink className= 'back2'  onClick={()=> navigate(-1) } > Go back   </NavLink> 
                           <button id='backk' >Contact</button>
 
                    </div>
@@ -140,7 +140,7 @@ const goBack =(type) =>{
 
                     <div className='twee'>
                    
-                    <NavLink className= 'back'  to={goBack(type)}> Go back   </NavLink> 
+                    <NavLink className= 'back'   onClick={()=> navigate(-1) }   > Go back   </NavLink> 
                     <button>Contact</button>
 
                     </div>

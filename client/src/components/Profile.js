@@ -141,6 +141,10 @@ try{
     }
   };
 
+  useEffect(() => {
+    tryProfilePic();
+  }, [profilePic]);
+
   return (
     <div className="all">
       {!user_ ? (
@@ -153,7 +157,7 @@ try{
 
         <div className='to_tings' >  
         <UploadProfilePic setProfilePic={setProfilePic} />
-       <button className="button_for_profile_pic"  onClick={tryProfilePic} >apply</button>
+       {/* <button className="button_for_profile_pic"  onClick={tryProfilePic} >apply</button> */}
        </div>
        
       </div>
