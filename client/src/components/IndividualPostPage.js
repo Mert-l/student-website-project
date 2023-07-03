@@ -85,7 +85,7 @@ const goBack =(type) =>{
                       <h3 id='theType'  >   {type} </h3> 
 
                               {user && <div     className='yhh' >
-                                    <img  src={user.profile}  onClick={() => navigate('/ViewProfile',  {state: (user && user)  })} className = 'profile_button'  />
+                                    <img  src={user.profile}  onClick={() => navigate('/ViewProfile',  {state:user})  } className = 'profile_button'  />
                                     <h5> {user.username} </h5>
 
                            </div>  

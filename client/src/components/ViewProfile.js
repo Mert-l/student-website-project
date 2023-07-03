@@ -8,35 +8,32 @@ import {useLocation} from 'react-router-dom';
 const ViewProfile = (props) => {
   
     const location = useLocation();
-const [user, setUser] = useState(null)
-console.log('user got with location:' , location.state.user )
+    console.log(location);
 
-    const fetchUser = async () => {
-  
-        try {
-         
-          const response = await axios.post("http://localhost:4000/user/getUser", {
-            _id: location.state._id
-          });
-            console.log('does it even work')
-          console.log("fetchet user i hope: ", response);
-          setUser(response.data.obj)
-        
-        } catch (error) {
-          console.log(error);
-        }
-      };
-      
-      useEffect(() => {
-        fetchUser();
-      }, []);
-
-
+        const user = location.state;
 
 
     return(
 
-            <h1> {user} </h1>
+            <div className="box_for_profile" >
+
+                <div className="pic_name"  >
+
+                    <img src={user.profile} />
+                    <h3> {user.username} </h3>
+
+                </div>
+
+                <div className="user_info_rest" >  
+                    <h3> {user.city}  </h3>
+                    <h5> {user.bio} </h5>
+
+
+
+                </div>
+
+
+            </div>
 
 
 
