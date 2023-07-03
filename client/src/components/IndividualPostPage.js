@@ -120,7 +120,16 @@ const goBack =(type) =>{
 
                     
                  
-                     <h3 id='theType'  >   {type} </h3> 
+                <div className="barabum" >
+                      <h3 id='theType'  >   {type} </h3> 
+
+                              {user && <div     className='yhhh' >
+                                    <img  src={user.profile}  onClick={() => navigate('/ViewProfile',  {state:{user}})  } className = 'profile_button'  />
+                                    <h5> {user.username} </h5>
+
+                           </div>  
+}
+                  </div>
 
                   
 

@@ -259,6 +259,13 @@ width: 70%;
   width:25%;
 }
 
+.yhhh{
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
+  width:15%;
+}
+
 .bar_items button {
 
  border:none;
@@ -1242,4 +1249,26 @@ color:rgb(249, 249, 249);
   margin-left: auto;
   margin-right: auto;
   font-weight: 100;
+}
+
+.one_post_for_no_img{
+  border: thin;
+  width: 100%;
+  /* height: 300px; */
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  /* height:400px;     
+          */
+          height: 100%;
+          justify-content: space-around;
+}
+
+
+.post_text_no_img{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 2%;
+  height:90%;
 }

@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import React, {useState, useEffect} from "react";
 import ImageSlide from "./ImageSlide";
+import ImageSlideNoImages from "./ImageSlideNoImages";
 
 const Home = () => {
   const navigate = useNavigate();      
@@ -49,33 +50,33 @@ setPosts(response.data.reverse())
     }
 
 
-    const getProfile = (ele) => {
+    
 
-      const fetchProfilePic = async () => {
+      // const fetchProfilePic = async () => {
   
-        try {
+      //   try {
          
-          const response = await axios.post("http://localhost:4000/user/getUser", {
-            _id: ele.userId
-          });
-            console.log('does it even work')
-          console.log("response from fetching user at home component?: ", response);
+      //     const response = await axios.post("http://localhost:4000/user/getUser", {
+      //       _id: ele.userId
+      //     });
+      //       console.log('does it even work')
+      //     console.log("response from fetching user at home component?: ", response);
          
-        } catch (error) {
-          console.log(error);
-        }
-      };
+      //   } catch (error) {
+      //     console.log(error);
+      //   }
+      // };
       
      
-      
+     
+ 
 
 
-    }
+    
 
-   useEffect(() => {
-        fetchProfilePic();
-      }, []);
-
+  //  useEffect(() => {
+  //       fetchProfilePic();
+  //     }, [ele]);
 
 
 return(
@@ -102,16 +103,16 @@ return(
 
               
 
-<div className='post_text' onClick={() => navigate("/IndividualPostPage", {state:{ele}})   }  >
-           
-           {getProfile(ele)}
+<div className='post_text_no_img' onClick={() => navigate("/IndividualPostPage", {state:{ele}})   }  >
+        <ImageSlideNoImages  dat={ele}  formatDate={formatDate}   />
+          
          
-          {ele.description.length > 140 ? <h5> {ele.description.substring(0, 140) + '. . .'} </h5> :  <h5> {ele.description} </h5>  }
+          {/* {ele.description.length > 140 ? <h5> {ele.description.substring(0, 140) + '. . .'} </h5> :  <h5> {ele.description} </h5>  }
            <div  className='price_interested'>
             {ele.price ? <h5> {ele.price}€ </h5> : null }
             <h5>Interested: {ele.interested.length}  </h5>
-            <h5>  {  formatDate(ele.createdAt)   }  </h5>
-        </div>
+            <h5>  {  formatDate(ele.createdAt)   }  </h5> */}
+        {/* </div> */}
     </div>
 
 
@@ -127,7 +128,8 @@ return(
     
       )
     
-    })}
+    }
+    )}
    
   
 </div>
