@@ -1,38 +1,45 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { AiOutlineArrowLeft } from 'react-icons/ai';
+
 
 const DropDown = (props) => {
 
 
+
   return (
 
-    <diV className= 'dropDownBox'>
+    <div className= 'dropDownBox'>
     <nav className = 'DropDown' >
 
-
-    <button>  
-    <NavLink 
-        to={"/profile"}>
-        Profile
-      </NavLink>
-</button>  
+      <div className="bar_items" >
 
 
-<button>  <NavLink  
-        to={"/settings"}>
-        Settings
-      </NavLink>
-     </button>
+             {/* <button onClick={props.setOpenDropDown(false)} >  < AiOutlineArrowLeft   /> </button> */}
+               < AiOutlineArrowLeft   /> 
+               
+              <NavLink 
+                  to={"/profile"}>
+                  Profile
+                </NavLink>
+          
+
+
+            <NavLink  
+                  to={"/settings"}>
+                  Settings
+                </NavLink>
+            
 
 
 
-     
-      <button  onClick={() => props.logout() }   >Log out</button>
+              
+                <h3  onClick={() => props.logout() } >Log out</h3>
 
-
+        </div>
     </nav>
 
-</diV>
+</div>
 
 
   );

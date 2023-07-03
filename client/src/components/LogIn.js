@@ -71,7 +71,7 @@ try{
             
          <button className= 'box_item' >Log in</button>   
             
-         {/* <h4>{message}</h4> */}
+         <h4>{message}</h4>
             <NavLink  className= 'box_item2'  to={'/register'}> Create an account    </NavLink> 
    
             

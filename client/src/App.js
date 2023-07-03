@@ -17,13 +17,16 @@ import { Navigate } from "react-router-dom";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import './index.css';
 import * as jose from "jose";
+import { useNavigate } from "react-router-dom";
 
 
 function App() {
 
+  const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   const token = JSON.parse(localStorage.getItem("token"))
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
+  console.log('lets see intial:', user)
 
   useEffect(() => {
     const verify_token = async () => {
@@ -71,6 +74,7 @@ const logout= () => {
   localStorage.removeItem("token")
   localStorage.removeItem("user")
   setIsLoggedIn(false)
+
 }
 
 
@@ -79,7 +83,7 @@ const logout= () => {
 
     <Router>
         
-         {isLoggedIn ? <Nav  logout={logout}  /> : <h1 className ='logo' >Student forum</h1>  }
+         {isLoggedIn ? <Nav  logout={logout}  user={user} /> : <h1 className ='logo' >Student forum</h1>  }
          
        <Routes>
        <Route path='/'  element={isLoggedIn ?  <Navigate to={'/Home'}/> : <Navigate to={'/LogIn'}/> }  />

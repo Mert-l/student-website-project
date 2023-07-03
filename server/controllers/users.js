@@ -70,7 +70,7 @@ try{
 const found =await Users.findOne({_id: req.body._id} )
 if(found) {
     const updated = await  Users.findOneAndUpdate({_id: req.body._id},  req.body )
-    res.send({ok: true, data: `account has been updated`})
+    res.send({ok: true, data: `account has been updated`, updated_user: updated})
 // if(updated.acknowledged && updated.modifiedCount > 0 ){
 //     res.send({ok: true, data: `account has been updated`})
 // } else{  res.send({ok: false, data: ' it wanst updated for some reason but the email exists'}) }
@@ -125,6 +125,8 @@ const getUser= async (req,res) =>{
         const found = await Users.findOne({_id: req.body._id});
         if(found){
             res.send({ok: true, obj: found})
+        } else{
+            res.send({ok: false, data: 'didnt find it or smth'})
         }
     } catch (error) {
         res.send(error)

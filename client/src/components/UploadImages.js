@@ -22,6 +22,7 @@ const UploadImages = ({ setPost}) => {
 
   const set_picture = async (result) => {
     let images = result.info.files.map((file) => file.uploadInfo.url);
+    console.log('imagesssss:' , images  )
     setPost((prevState) => ({ ...prevState, image: images }));
   };
   

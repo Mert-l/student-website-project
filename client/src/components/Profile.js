@@ -22,7 +22,7 @@ const Profile = (props) => {
   const [dis, setDis] = useState(true);
   const [posts, setPosts] = useState(null);
   const [modalPosts, setModalPosts] = useState(null);
-  const [profilePic, setProfilePic] = useState('https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-Image.png')
+  const [profilePic, setProfilePic] = useState('')
 
   const navigate = useNavigate();
   const image = props.dat;
@@ -30,6 +30,8 @@ const Profile = (props) => {
   const [idx, setIdx] = useState(0)
 
   const [open, setOpen] = useState(false);
+
+  // console.log('this one?', user_)
 
   const letsSee = async (id) => {
     let post = posts.find((ele) => ele._id === id);
@@ -54,7 +56,7 @@ const Profile = (props) => {
         _id: props.user._id,
       });
 
-      console.log("response userrrrrrr: ", response);
+      // console.log("response userrrrrrr: ", response);
       setUser(response.data.obj);
     } catch (error) {
       console.log(error);
@@ -87,11 +89,21 @@ const Profile = (props) => {
   }
 
 
+const tryProfilePic = () => {
 
+try{
+  setUser({...user_, profile: profilePic} )
+
+}catch(err){
+  console.log(err)
+}
+
+}
 
 
   const handleChange = (e) => {
     setUser({ ...user_, [e.target.name]: e.target.value });
+    console.log('changed user:' , user_)
   };
 
   const fetchPosts = async () => {
@@ -121,7 +133,7 @@ const Profile = (props) => {
           user_
         );
         props.setUser_fromApp(user_);
-        console.log("looooooooked for", response);
+        console.log("hopefoly updated:", response);
         setMessage(response.data.data);
       }
     } catch (err) {
@@ -135,11 +147,14 @@ const Profile = (props) => {
         <h2>no info yet</h2>
       ) : (
         <div className="profile_box">
-          <div className="first_half">
+          <div className="first_half3">
           <div className="pic_stuff3" >
-        {profilePic && <img  src={profilePic} />}
+        {user_.profile && <img  src={user_.profile} />}
+
+        <div className='to_tings' >  
         <UploadProfilePic setProfilePic={setProfilePic} />
-       
+       <button className="button_for_profile_pic"  onClick={tryProfilePic} >apply</button>
+       </div>
        
       </div>
 
@@ -186,10 +201,12 @@ const Profile = (props) => {
               <input
                 placeholder="Bio"
                 name="bio"
-                id='bioo'
+                id='bio_b'
                 value={user_.bio && user_.bio}
                 disabled={dis}
               />
+                <button className="button_for_profile_pic2"  >submit?</button>
+
               {/* <h3> {message} </h3> */}
             </form>
           </div>

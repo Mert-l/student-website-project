@@ -2,12 +2,40 @@ import { AiOutlineArrowRight } from 'react-icons/ai';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function ImageSlide(props) {
   const navigate = useNavigate();
 const image = props.dat;
 const formatDate = props.formatDate;
 const [idx, setIdx] = useState(0)
+
+console.log('what is imageee', image)
+const [ze_pic, setZePic] = useState('');
+const[userName, setUserName] = useState('')
+
+const fetchProfilePic = async () => {
+  
+  try {
+   
+    const response = await axios.post("http://localhost:4000/user/getUser", {
+      _id: image.userId
+    });
+      console.log('does it even work')
+    console.log("response from fetching pic?: ", response);
+    setZePic(response.data.obj.profile);
+    setUserName(response.data.obj.username)
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+useEffect(() => {
+  fetchProfilePic();
+}, []);
+
+
+
 
   return (
 
@@ -29,7 +57,17 @@ const [idx, setIdx] = useState(0)
 <div className='post_text'    onClick={() =>
           navigate("/IndividualPostPage", { state: { ele: image } })
         }  >
-     <h3> {image.title} </h3>
+
+        <div className='yahh' >  
+             <h3> {image.title} </h3>
+             <div className='yhh' >
+                <img  src={ze_pic}   className = 'profile_button' />
+                <h5> {userName} </h5>
+
+             </div>
+             
+        </div>
+
       {image.description && <h5> {image.description.substring(0, 130) + '. . .' } </h5> }
        <div  className='price_interested'>
         {image.price ? <h5> {image.price}€ </h5> : null }

@@ -15,7 +15,7 @@ const Home = () => {
  const fetchPosts = async () => {
   try {
     const response = await axios.get('http://localhost:4000/post/getPosts')
-    console.log(response)
+    // console.log(response)
 setPosts(response.data.reverse())
   } catch (error) {
     console.log(error);
