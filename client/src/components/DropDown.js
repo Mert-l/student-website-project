@@ -16,7 +16,7 @@ const DropDown = (props) => {
 
 
              {/* <button onClick={props.setOpenDropDown(false)} >  < AiOutlineArrowLeft   /> </button> */}
-               < AiOutlineArrowLeft   /> 
+               < AiOutlineArrowLeft onClick={()=> props.setOpenDropDown(false)  }  /> 
                
               <NavLink 
                   to={"/profile"}>

@@ -61,7 +61,7 @@ useEffect(() => {
         <div className='yahh' >  
              <h3> {image.title} </h3>
              <div className='yhh' >
-                <img  src={ze_pic}   className = 'profile_button' />
+                <img  src={ze_pic}   className = 'profile_button'  />
                 <h5> {userName} </h5>
 
              </div>

@@ -10,6 +10,7 @@ import Profile from './components/Profile';
 import DropDown from './components/DropDown';
 import AddPost from './components/AddPost';
 import IndividualPostPage from './components/IndividualPostPage';
+import ViewProfile from './components/ViewProfile';
 import axios from 'axios';
 // import React from "react";
 import React, { useState, useEffect } from "react";
@@ -100,7 +101,8 @@ const logout= () => {
          <Route path="/addPost"    element={!isLoggedIn ? <Navigate to="/LogIn" /> : <AddPost user={user} />}  /> 
          
          <Route path="/profile" element={<Profile  user={user} setUser_fromApp={setUser}  />} />  
-         <Route path="/IndividualPostPage" element={<IndividualPostPage   />} />             
+         <Route path="/IndividualPostPage" element={<IndividualPostPage   />} />       
+         <Route path="/ViewProfile" element={<ViewProfile   />} />      
 
   
        </Routes>

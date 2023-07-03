@@ -105,18 +105,56 @@ align-items: center;
   padding: 4%;
 }
 
+.box_item{
+  padding:5%;
+  margin:3%;
+  color: rgb(43, 43, 126);
+  margin-bottom: 1px;
+}
 
 .container button{
   background-color: rgba(255, 255, 255, 0.903);
   color:rgb(56, 63, 147);
-  border-radius: 5%;
-  width:90%;
+  border-radius: 25px;
+  width:50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+  box-shadow: 1px 4px 7px 1px rgba(0, 0, 0, 0.5); 
+  border-color: rgb(16, 16, 65)
+
+
+ 
+}
+
+.container button:hover{
+  background-color: rgb(209, 209, 198);
+  color:rgb(26, 32, 88);
+  border-radius: 25px;
+  width:50%;
+  border-radius: 50px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 10%;
   box-shadow: 1px 4px 7px 1px rgba(0, 0, 0, 0.5); 
  
 }
+
+
+.container button:active{
+  background-color: rgb(7, 10, 60);
+  color:rgb(226, 227, 231);
+  border-radius: 25px;
+  width:50%;
+  border-radius: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+  box-shadow: 1px 4px 7px 1px rgba(0, 0, 0, 0.5); 
+ 
+}
+
+
 .container2 button{
   background-color: rgba(255, 255, 255, 0.903);
   color:rgb(56, 63, 147);
@@ -129,12 +167,7 @@ align-items: center;
  
 }
 
-.box_item{
-  padding:5%;
-  margin:3%;
-  color: rgb(43, 43, 126);
-  margin-bottom: 1px;
-}
+
 .box_item2{
  
   color: rgb(207, 207, 224);
@@ -174,6 +207,19 @@ align-items: center;
 }
 .three h4{
   margin-top:1%;
+}
+
+.barabum{
+  display:flex;
+  justify-content: space-between;
+}
+
+.container h4{
+  color:white;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Helvetica ;
+  font-weight: 100;
 }
 
 .DropDown{
@@ -1047,6 +1093,30 @@ margin-left: 4%;
   box-shadow: 1px 4px 5px 1px rgba(147, 146, 148, 0.5); 
 
 }
+.button_for_profile_pic:hover{
+  background-color: rgb(209, 209, 198);
+  padding:2%;
+  width: 35%;
+  border-radius: 20px;
+  color:rgb(18, 21, 105);
+  border-color:rgb(12, 14, 64);
+  box-shadow: 1px 4px 5px 1px rgba(147, 146, 148, 0.5); 
+
+}
+.button_for_profile_pic:active{
+  background-color: rgb(12, 14, 64);
+  padding:2%;
+  width: 35%;
+  border-radius: 20px;
+  color:rgb(240, 240, 253);
+  border-color:rgb(12, 14, 64);
+  box-shadow: 1px 4px 5px 1px rgba(147, 146, 148, 0.5); 
+
+}
+
+
+
+
 .to_tings{
   display: flex;
 /* flex-direction: column; */
@@ -1067,6 +1137,27 @@ color:rgb(18, 13, 115);
   border-color:rgb(12, 14, 64);
 }
 
+#button_for_profile_picc:hover{
+  background-color: rgb(209, 209, 198);
+  padding:15%;
+  width: 220%;
+  color:rgb(18, 13, 115);
+  border-radius: 20px;
+  box-shadow: 1px 4px 5px 1px rgba(142, 141, 143, 0.5); 
+  border-color:rgb(12, 14, 64);
+}
+#button_for_profile_picc:active{
+  background-color: rgb(12, 14, 64);
+  padding:15%;
+  width: 220%;
+color:rgb(249, 249, 249);
+  border-radius: 20px;
+  box-shadow: 1px 4px 5px 1px rgba(142, 141, 143, 0.5); 
+  border-color:rgb(12, 14, 64);
+}
+
+
+
 .button_for_profile_pic2{
   background-color: rgb(255, 255, 250);
   padding:2%;
@@ -1079,4 +1170,25 @@ color:rgb(18, 13, 115);
 }
 #bio_b{
   height: 80px;
+}
+
+.button_for_profile_pic2:hover{
+  background-color: rgb(209, 209, 198);
+  padding:2%;
+  width: 35%;
+  border-radius: 20px;
+  color:rgb(18, 21, 105);
+  border-color:rgb(12, 14, 64);
+  box-shadow: 1px 4px 5px 1px rgba(147, 146, 148, 0.5); 
+  margin-left:30%;
+}
+.button_for_profile_pic2:active{
+  background-color: rgb(12, 14, 64);
+  padding:2%;
+  width: 35%;
+  border-radius: 20px;
+  color:rgb(245, 245, 248);
+  border-color:rgb(12, 14, 64);
+  box-shadow: 1px 4px 5px 1px rgba(147, 146, 148, 0.5); 
+  margin-left:30%;
 }
