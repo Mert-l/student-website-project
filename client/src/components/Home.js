@@ -48,7 +48,33 @@ setPosts(response.data.reverse())
 
     }
 
+
+    const getProfile = (ele) => {
+
+      const fetchProfilePic = async () => {
   
+        try {
+         
+          const response = await axios.post("http://localhost:4000/user/getUser", {
+            _id: ele.userId
+          });
+            console.log('does it even work')
+          console.log("response from fetching user at home component?: ", response);
+         
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      
+     
+      
+
+
+    }
+
+   useEffect(() => {
+        fetchProfilePic();
+      }, []);
 
 
 
@@ -77,7 +103,8 @@ return(
               
 
 <div className='post_text' onClick={() => navigate("/IndividualPostPage", {state:{ele}})   }  >
-         <h3> {ele.title} </h3>
+           
+           {getProfile(ele)}
          
           {ele.description.length > 140 ? <h5> {ele.description.substring(0, 140) + '. . .'} </h5> :  <h5> {ele.description} </h5>  }
            <div  className='price_interested'>
