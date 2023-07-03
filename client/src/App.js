@@ -20,9 +20,10 @@ import * as jose from "jose";
 import { useNavigate } from "react-router-dom";
 
 
+
 function App() {
 
-  const navigate = useNavigate();
+ 
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   const token = JSON.parse(localStorage.getItem("token"))
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
