@@ -15,11 +15,11 @@ import axios from "axios";
 
 
 const Contact = (props) => {
-
+debugger
     const location = useLocation();
-    console.log( 'locationnnn', location.state);
+    console.log( 'locationnnn', location.state.user);
 
-        // const user = location.state.user;
+    const op = location.state.user;
   
      const [contactForm, setContactForm] = useState({
         subject: '',
@@ -27,7 +27,27 @@ const Contact = (props) => {
          
      })
 
+     const[currentUser, setCurrentUser] = useState(null);
+
 // console.log('is that the thing:'  , user)
+
+const fetchUser = async () => {
+    try {
+      const response = await axios.post("http://localhost:4000/user/getUser", {
+        _id: props.userId,
+      });
+
+      // console.log("response userrrrrrr: ", response);
+      setCurrentUser(response.data.obj);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchUser();
+  }, []);
+
 
 
 
@@ -40,11 +60,13 @@ const Contact = (props) => {
 
       const handleSubmit = async (e) => {
       
-        try {
+        if(props.user){
+
+ try {
          
           const response = await axios.post("http://localhost:4000/contact/send_email", {
-            from: '',
-            to: '',
+            from: currentUser.email,
+            to: op.email,
             subject: contactForm.subject,
             text: contactForm.text
           });
@@ -54,6 +76,10 @@ const Contact = (props) => {
         } catch (err) {
           console.log(err);
         }
+
+        }
+
+       
         
       };
 

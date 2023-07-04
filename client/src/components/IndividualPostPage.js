@@ -52,18 +52,13 @@ const goBack =(type) =>{
    return str;
 }
 
-user && console.log('if its the yhen idk', user.email)
 const here_because_there_not_work = () => {
 
-
-
-
-  user && navigate('/Contact',  {state:{email: user.email}});
+  navigate('/Contact',  {state:{user}});
 
 }
 
-
-
+// user &&  console.log('uuuuuuuuuuuuuuuu', user.email)
 
     return (
   <div>
@@ -142,7 +137,7 @@ const here_because_there_not_work = () => {
                       <h3 id='theType'  >   {type} </h3> 
 
                               {user && <div     className='yhhh' >
-                                    <img  src={user.profile}  onClick={here_because_there_not_work } className = 'profile_button'  />
+                                    <img  src={user.profile}  onClick={() => navigate('/ViewProfile',  {state:{user}})  } className = 'profile_button'  />
                                     <h5> {user.username} </h5>
 
                            </div>  
@@ -168,7 +163,7 @@ const here_because_there_not_work = () => {
                     <div className='twee'>
                    
                     <NavLink className= 'back'   onClick={()=> navigate(-1) }   > Go back   </NavLink> 
-                    <button onClick={() => navigate('/Contact')}  >Contact</button>
+                    <button  onClick={() => navigate('/Contact',  {state:{user}})  }  >Contact</button>
 
                     </div>
                    
