@@ -60,6 +60,7 @@ function App() {
 const login = (token) => {
 
   let decodedToken = jose.decodeJwt(token);
+  console.log('decoded token:' , decodedToken)
  
   let user = {
     _id: decodedToken._id,
@@ -90,7 +91,7 @@ const logout= () => {
          
        <Routes>
        <Route path='/'  element={isLoggedIn ?  <Navigate to={'/Home'}/> : <Navigate to={'/LogIn'}/> }  />
-         <Route path="/home"    element={!isLoggedIn ? <Navigate to="/LogIn" /> : <Home />}  />
+         <Route path="/home"    element={!isLoggedIn ? <Navigate to="/LogIn" /> : <Home  userId= {user}  />}  />
          <Route path="/market" element={<Marketplace />} />
  <Route path="/rentals" element={<Rentals />} />
 <Route path="/tutoring" element={<Tutoring />} />

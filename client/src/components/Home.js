@@ -5,22 +5,34 @@ import React, {useState, useEffect} from "react";
 import ImageSlide from "./ImageSlide";
 import ImageSlideNoImages from "./ImageSlideNoImages";
 
-const Home = () => {
-  const navigate = useNavigate();      
+const Home = (props) => {
+  const navigate = useNavigate();    
+  
+  
+
+
 
 
   
-
+const [fetchedUser, setFetchedUser] = useState(null)
  const [posts, setPosts] = useState(null);
 
  const fetchPosts = async () => {
+  
+if(fetchedUser){
+
   try {
-    const response = await axios.get('http://localhost:4000/post/getPosts')
+    debugger
+    const response = await axios.get('http://localhost:4000/post/getPosts', {city: fetchedUser.city } )
     // console.log(response)
 setPosts(response.data.reverse())
   } catch (error) {
     console.log(error);
   }
+
+
+
+}
 }
 
 
@@ -50,33 +62,28 @@ setPosts(response.data.reverse())
     }
 
 
-    
 
-      // const fetchProfilePic = async () => {
-  
-      //   try {
-         
-      //     const response = await axios.post("http://localhost:4000/user/getUser", {
-      //       _id: ele.userId
-      //     });
-      //       console.log('does it even work')
-      //     console.log("response from fetching user at home component?: ", response);
-         
-      //   } catch (error) {
-      //     console.log(error);
-      //   }
-      // };
+    const fetchUser = async () => {
       
-     
-     
- 
+      try {
+        const response = await axios.post("http://localhost:4000/user/getUser", {
+          _id: props.userId._id,
+        });
+  
+         console.log("response userrrrrrr: ", response);
+        setFetchedUser(response.data.obj);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  
+    useEffect(() => {
+      fetchUser();
+    }, []);
 
 
-    
 
-  //  useEffect(() => {
-  //       fetchProfilePic();
-  //     }, [ele]);
+
 
 
 return(

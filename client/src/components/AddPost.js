@@ -5,6 +5,9 @@ import UploadImages from "./UploadImages";
 import Images from "./Images";
 
 function AddPost(props) {
+
+  const [userr, setUser] = useState(null);
+
   const [post, setPost] = useState({
     image: [],
     title: "",
@@ -15,6 +18,28 @@ function AddPost(props) {
   });
   const [tag, setTag] = useState("");
   const navigate = useNavigate();
+
+
+  const fetchUser = async () => {
+    try {
+      const response = await axios.post("http://localhost:4000/user/getUser", {
+        _id: props.user._id
+      });
+
+      // console.log("response userrrrrrr: ", response);
+      setUser(response.data.obj);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchUser();
+  }, []);
+
+
+
+
 
   const handleChangeTag = (e) => {
     setTag(e.target.value);
@@ -28,7 +53,7 @@ function AddPost(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      debugger;
+      debugger
       const response = await axios.post("http://localhost:4000/post/post", {
         title: post.title,
         image: post.image,
@@ -36,15 +61,16 @@ function AddPost(props) {
         type: post.type,
         description: post.description,
         userId: props.user._id,
-        tags: post.tags
+        tags: post.tags,
+        city: userr.city
       });
       
       navigate("/");
-      console.log("post response:", response);
+      console.log("post that god please i created:", response);
     } catch (err) {
       console.log(err);
     }
-    console.log('seeeeeeeee: ', post )
+    // console.log('seeeeeeeee: ', post )
   };
 
   return (
@@ -93,7 +119,7 @@ function AddPost(props) {
            
             type="button"
             onClick={() => {
-                debugger
+              
                 if(post.tags.length >0) {
                         setPost((prevState) => ({
                 ...prevState,

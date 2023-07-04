@@ -7,6 +7,7 @@ const postSchema = new mongoose.Schema({
     price: { type: Number, required: false, unique: false, default: 0 },
     tags: [{ type: String, required: false, unique: false }],
     description: { type: String, required: true },
+    city: {type: String},
     interested: [
       {
         userId: { type: mongoose.Schema.Types.ObjectId, ref: "user" },
