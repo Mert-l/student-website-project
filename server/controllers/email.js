@@ -26,10 +26,16 @@ const send_email = async (req, res) => {
       name: name,
     
     }
+
+        if(!subject || !text || Number(subject) == 0 || Number(text) == 0   ){
+            return res.json({ ok: false, message: 'Please fill in all inputs!' });
+        }
+
+
     try {
       const success = await transport.sendMail(mailOptions);
       console.log("success: ", success)
-      return res.json({ ok: true, message: 'email sent' });
+      return res.json({ ok: true, message: 'Email sent!' });
     } catch (err) {
       console.log(err)
       return res.json({ ok: false, message: err });

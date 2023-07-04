@@ -1318,7 +1318,7 @@ color:rgb(249, 249, 249);
   margin-left:auto;
   margin-right: auto;
   margin-bottom: 10%;
-  width:50%;
+  width:40%;
   height: 80vh;
   display:flex;
   justify-content: space-between;
@@ -1421,4 +1421,91 @@ color:rgb(249, 249, 249);
 }
 
 
+  }
+
+  .contact_person{
+
+color:rgb(8, 11, 84);
+width:100%;
+margin-left:10%;
+margin-bottom:10%;
+font-size: 150%;
+height: 10%;
+
+  }
+
+  .c_form{
+    height: 100%;
+
+    width:70%;
+    display:flex;
+    flex-direction: column;
+    align-items: baseline;
+   
+
+  }
+
+  .c_form textarea {
+    width:100%;
+    border-radius: 10px;
+    border: thin;
+    box-shadow: 1px 7px 12px 1px rgba(83, 81, 81, 0.5);
+    height:25%;
+  }
+  .c_form input {
+    width:100%;
+    border-radius: 10px;
+    border: thin;
+    box-shadow: 1px 7px 12px 1px rgba(83, 81, 81, 0.5);
+    height:25%;
+  }
+
+  #c_message{
+    height: 100%;
+  }
+  .c_form button{
+
+      background-color: rgb(255, 255, 250);
+      padding:2%;
+      width: 35%;
+      border-radius: 20px;
+      color:rgb(18, 21, 105);
+      border-color:rgb(12, 14, 64);
+      box-shadow: 1px 4px 5px 1px rgba(147, 146, 148, 0.5); 
+   
+      margin-top:5%;
+    
+
+  }
+
+  .c_form button:hover{
+    background-color: rgb(209, 209, 198);
+    padding:2%;
+    width: 35%;
+    border-radius: 20px;
+    color:rgb(18, 21, 105);
+    border-color:rgb(12, 14, 64);
+    box-shadow: 1px 4px 5px 1px rgba(147, 146, 148, 0.5); 
+ 
+  }
+  .c_form button:active{
+    background-color: rgb(12, 14, 64);
+    padding:2%;
+    width: 35%;
+    border-radius: 20px;
+    color:rgb(245, 245, 248);
+    border-color:rgb(12, 14, 64);
+    box-shadow: 1px 4px 5px 1px rgba(147, 146, 148, 0.5); 
+    
+  }
+
+  .dasf{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #dip{
+    margin-left: auto;
+    margin-right: auto;
   }

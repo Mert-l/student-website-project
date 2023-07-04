@@ -104,7 +104,7 @@ const logout= () => {
          <Route path="/profile" element={<Profile  user={user} setUser_fromApp={setUser}  />} />  
          <Route path="/IndividualPostPage" element={<IndividualPostPage   />} />       
          <Route path="/ViewProfile" element={<ViewProfile   />} />      
-         <Route path="/Contact" element={<Contact />}  userId={user} />  
+         <Route path="/Contact" element={<Contact   userId={user}   />}  />  
 
   
        </Routes>
