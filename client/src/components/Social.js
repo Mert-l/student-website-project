@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import React, {useState, useEffect} from "react";
 import ImageSlide from "./ImageSlide";
 
-const Social = () => {
+const Social = (props) => {
   
   const navigate = useNavigate();
 
@@ -14,7 +14,7 @@ const Social = () => {
     try {
       const response = await axios.post(
         "http://localhost:4000/post/getTypePosts",
-        { type: 'social' }
+        { type: 'social', city: props.city  }
       );
       console.log("post response:", response);
       setPosts(response.data);

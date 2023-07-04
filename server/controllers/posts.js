@@ -77,7 +77,7 @@ try {
           const getPost= async (req,res) =>{
             const {city} = req.body;
             try {
-                const post = await Posts.findOne({city})
+                const post = await Posts.find({city})
                 res.send(post)
             } catch (error) {
                 res.send(error)
@@ -96,9 +96,9 @@ try {
               }
 
               const getTypePost = async(req, res) => {
-                const {type} = req.body;
+                const {type, city} = req.body;
                 try{
-                  const post =await Posts.find({type})
+                  const post =await Posts.find({type: type, city: city})
                   res.send(post)
 
                 }catch (error) {

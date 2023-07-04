@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import React, {useState, useEffect} from "react";
 import ImageSlide from "./ImageSlide";
 
-const Tutoring = () => {
+const Tutoring = (props) => {
   
   const navigate = useNavigate();
 
@@ -14,7 +14,7 @@ const Tutoring = () => {
     try {
       const response = await axios.post(
         "http://localhost:4000/post/getTypePosts",
-        { type: 'tutoring' }
+        { type: 'tutoring', city: props.city  }
       );
       console.log("post response:", response);
       setPosts(response.data);
