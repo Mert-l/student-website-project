@@ -105,7 +105,7 @@ const logIn = async (req, res) => {
     if(found){
         const match = await argon2.verify(found.password, password);
         if(match){
-            const token = jwt.sign({ _id: found._id }, jwt_secret, {
+            const token = jwt.sign({ _id: found._id, city: found.city }, jwt_secret, {
                 expiresIn: "1h",
               });
               res.send({ ok: true, data: "welcome back", token});

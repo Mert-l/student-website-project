@@ -13,17 +13,16 @@ const Home = (props) => {
 
 
 
-  
-const [fetchedUser, setFetchedUser] = useState(null)
+
  const [posts, setPosts] = useState(null);
 
  const fetchPosts = async () => {
   
-if(fetchedUser){
+
 
   try {
-    debugger
-    const response = await axios.get('http://localhost:4000/post/getPosts', {city: fetchedUser.city } )
+   debugger
+    const response = await axios.get('http://localhost:4000/post/getPosts', {city: props.city } )
     // console.log(response)
 setPosts(response.data.reverse())
   } catch (error) {
@@ -32,7 +31,7 @@ setPosts(response.data.reverse())
 
 
 
-}
+
 }
 
 
@@ -62,24 +61,6 @@ setPosts(response.data.reverse())
     }
 
 
-
-    const fetchUser = async () => {
-      
-      try {
-        const response = await axios.post("http://localhost:4000/user/getUser", {
-          _id: props.userId._id,
-        });
-  
-         console.log("response userrrrrrr: ", response);
-        setFetchedUser(response.data.obj);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-  
-    useEffect(() => {
-      fetchUser();
-    }, []);
 
 
 
