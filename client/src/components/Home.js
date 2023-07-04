@@ -22,7 +22,7 @@ const Home = (props) => {
 
   try {
    debugger
-    const response = await axios.get('http://localhost:4000/post/getPosts', {city: props.city } )
+    const response = await axios.post('http://localhost:4000/post/getPosts', {city: props.city } )
     // console.log(response)
 setPosts(response.data.reverse())
   } catch (error) {
