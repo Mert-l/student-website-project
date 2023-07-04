@@ -29,7 +29,7 @@ const IndividualPostPage = () => {
             _id: userId
           });
         
-          // console.log("fetchet user i hope: ", response);
+          // console.log("fetchet op i hope: ", response);
           setUser(response.data.obj)
           
         
@@ -41,6 +41,8 @@ const IndividualPostPage = () => {
       useEffect(() => {
         fetchUser();
       }, []);
+
+      //  console.log( 'trying again'  ,user)
     
 // console.log( 'passed objecttttttt: ' , location.state)
 
@@ -49,6 +51,19 @@ const goBack =(type) =>{
     // console.log( 'strrrrrrrrrrr', str)
    return str;
 }
+
+user && console.log('if its the yhen idk', user.email)
+const here_because_there_not_work = () => {
+
+
+
+
+  user && navigate('/Contact',  {state:{email: user.email}});
+
+}
+
+
+
 
     return (
   <div>
@@ -104,9 +119,12 @@ const goBack =(type) =>{
 
                       <div className="tags" > {tags.map(ele => <h4> {ele} </h4>)  } </div>
                       <div className='twee2'>
-                   
+                  
                           <NavLink className= 'back2'  onClick={()=> navigate(-1) } > Go back   </NavLink> 
-                          <button id='backk' >Contact</button>
+                           
+                          { user &&  <button id='backk'  onClick={() => navigate('/Contact',  {state:{user}})  }   >Contact</button>}
+                          
+                          
 
                    </div>
 
@@ -124,7 +142,7 @@ const goBack =(type) =>{
                       <h3 id='theType'  >   {type} </h3> 
 
                               {user && <div     className='yhhh' >
-                                    <img  src={user.profile}  onClick={() => navigate('/ViewProfile',  {state:{user}})  } className = 'profile_button'  />
+                                    <img  src={user.profile}  onClick={here_because_there_not_work } className = 'profile_button'  />
                                     <h5> {user.username} </h5>
 
                            </div>  
@@ -150,7 +168,7 @@ const goBack =(type) =>{
                     <div className='twee'>
                    
                     <NavLink className= 'back'   onClick={()=> navigate(-1) }   > Go back   </NavLink> 
-                    <button>Contact</button>
+                    <button onClick={() => navigate('/Contact')}  >Contact</button>
 
                     </div>
                    

@@ -26,6 +26,7 @@ async function connecting(){
 
     app.use('/user', require("./routs/Users"))
     app.use('/post', require("./routs/Posts"))
+    app.use('/contact', require("./routs/_Contact"))
   
 
 app.listen(4000,  ()=> {

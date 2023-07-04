@@ -10,7 +10,7 @@ const ViewProfile = (props) => {
     const location = useLocation();
     console.log(location);
 
-        const user = location.state;
+        const user = location.state.user;
 
 
     return(
