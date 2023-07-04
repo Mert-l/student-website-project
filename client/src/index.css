@@ -624,7 +624,8 @@ grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
     padding: 6%;
     margin-bottom: 3%;
     margin-top: 3%;
-    color:rgb(37, 39, 124)
+    color:rgb(37, 39, 124);
+    width:90%
   }
 
   .post_rest2 button{

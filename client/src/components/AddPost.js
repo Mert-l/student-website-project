@@ -21,7 +21,7 @@ function AddPost(props) {
 
 
   const fetchUser = async () => {
-    debugger
+  
     try {
       const response = await axios.post("http://localhost:4000/user/getUser", {
         _id: props.user._id

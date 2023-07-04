@@ -5,7 +5,7 @@ const postPost = async (req, res) => {
   const { title, image, price, tags, interested, type, userId, description, city } =
   req.body;
 try {
-  debugger
+  
   if (!type) {
     res.send({ ok: false, message: "Post type is required!" });
   } else{ 
