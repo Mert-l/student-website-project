@@ -1,64 +1,66 @@
-
 import { NavLink } from "react-router-dom";
-
-
-
-import {useLocation} from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
-import { AiOutlineArrowRight } from 'react-icons/ai';
-import { AiOutlineArrowLeft } from 'react-icons/ai';
-
-
-
+import { AiOutlineArrowRight } from "react-icons/ai";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 
 const IndividualPostPage = () => {
   const navigate = useNavigate();
-  const [idx, setIdx] = useState(0)
-    const location = useLocation();
-    const {title, image, createdAt, interested, price, tags, type,description , userId} = location.state.ele;
-    const [user, setUser] = useState(null)
+  const [idx, setIdx] = useState(0);
 
-    const fetchUser = async () => {
-  
-        try {
-         
-          const response = await axios.post("http://localhost:4000/user/getUser", {
-            _id: userId
-          });
-        
-          // console.log("fetchet op i hope: ", response);
-          setUser(response.data.obj)
-          
-        
-        } catch (error) {
-          console.log(error);
-        }
-      };
-      
-      useEffect(() => {
-        fetchUser();
-      }, []);
+  const location = useLocation();
+  const [user, setUser] = useState(null);
 
-      //  console.log( 'trying again'  ,user)
-    
-// console.log( 'passed objecttttttt: ' , location.state)
+  const [postData, setPostData] = useState({
+    title: "",
+    image: "",
+    createdAt: "",
+    interested: "",
+    price: "",
+    tags: [],
+    type: "",
+    description: "",
+    userId: "",
+  });
+  const {
+    title,
+    image,
+    createdAt,
+    interested,
+    price,
+    tags,
+    type,
+    description,
+    userId,
+  } = postData;
 
-const goBack =(type) =>{
-   let str = '/' + type;
-    // console.log( 'strrrrrrrrrrr', str)
-   return str;
-}
+  useEffect(() => {
+    console.log(location);
+    if (location.state) {
+      setPostData(location.state.ele);
+    }
+  }, []);
 
-const here_because_there_not_work = () => {
+  const fetchUser = async () => {
+    try {
+      const response = await axios.post("http://localhost:4000/user/getUser", {
+        _id: userId,
+      });
 
-  navigate('/Contact',  {state:{user}});
+      // console.log("fetchet op i hope: ", response);
+      setUser(response.data.obj);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-}
-
-// user &&  console.log('uuuuuuuuuuuuuuuu', user.email)
+  useEffect(() => {
+    if (postData.userId) {
+      fetchUser();
+    }
+  }, [postData]);
 
     return (
   <div>
@@ -102,7 +104,7 @@ const here_because_there_not_work = () => {
 }
                   </div>
 
-                  <h4> {title} </h4> 
+                  <h4  className="idividualPostTitle"  > {title} </h4> 
                   <h5> {description} </h5>  
 
                 <div>

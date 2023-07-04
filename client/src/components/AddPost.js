@@ -49,7 +49,7 @@ function AddPost(props) {
 
   return (
     <div className="post_container3">
-      <div className="pic_stuff3" >
+      <div className="pic_stuff3_" >
         {post.image.length >0 ? (
           <Images images={post.image}   />
         ) : (

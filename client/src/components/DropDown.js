@@ -19,22 +19,17 @@ const DropDown = (props) => {
                < AiOutlineArrowLeft onClick={()=> props.setOpenDropDown(false)  }  /> 
                
               <NavLink 
+              className='bar_link'
                   to={"/profile"}>
                   Profile
                 </NavLink>
-          
-
-
-            <NavLink  
-                  to={"/settings"}>
-                  Settings
-                </NavLink>
+        
             
 
 
 
               
-                <h3  onClick={() => props.logout() } >Log out</h3>
+                <h4 className='bar_link'  onClick={() => props.logout() } >Log out</h4>
 
         </div>
     </nav>
