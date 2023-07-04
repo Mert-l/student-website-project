@@ -75,11 +75,11 @@ const IndividualPostPage = () => {
                 
                 <div className="slide_for_single_post_page" >
    
-                {image.length > 1 && <button id='left2' type='button' onClick={  () => idx !=0 &&  setIdx(idx-1)  } >  <AiOutlineArrowLeft className='iconss2' />  </button>}
+                {image.length > 1 &&  idx != 0 && <button id='left2' type='button' onClick={  () => idx !=0 &&  setIdx(idx-1)  } >  <AiOutlineArrowLeft className='iconss2' />  </button>}
         
                  <img  src={image[idx]}    />
         
-                {image.length > 1 && <button id='right2'  type='button' onClick={ () =>  idx !=image.length -1 &&  setIdx(idx+1)  }  >  <AiOutlineArrowRight className='iconss2' /> </button>}
+                {image.length > 1 &&  idx != image.length -1 && <button id='right2'  type='button' onClick={ () =>  idx !=image.length -1 &&  setIdx(idx+1)  }  >  <AiOutlineArrowRight className='iconss2' /> </button>}
         
         </div>
               

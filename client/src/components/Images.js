@@ -9,21 +9,20 @@ function Images({ images }) {
 
   return (
 
-    <div className="img_box_" >
    
    <div className="slide_" >
    
-   {images.length > 1 && <button id='left_' type='button' onClick={  () => idx !=0 &&  setIdx(idx-1)  } >  <AiOutlineArrowLeft className='iconss' />  </button>}
+   {images.length > 1 &&  idx !=0 && <button id='left_' type='button' onClick={  () => idx !=0 &&  setIdx(idx-1)  } >  <AiOutlineArrowLeft className='iconss' />  </button>}
 
     <img  src={images[idx]}   />
 
-   {images.length > 1 && <button id='right_'  type='button' onClick={ () =>  idx !=images.length -1 &&  setIdx(idx+1)  }  >  <AiOutlineArrowRight className='iconss' /> </button>}
+   {images.length > 1 &&  idx !=images.length -1 && <button id='right_'  type='button' onClick={ () =>  idx !=images.length -1 &&  setIdx(idx+1)  }  >  <AiOutlineArrowRight className='iconss' /> </button>}
 
 </div>
 
 
 
-    </div>
+  
   );
 }
 

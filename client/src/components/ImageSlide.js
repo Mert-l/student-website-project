@@ -43,13 +43,13 @@ useEffect(() => {
 
 <div className="slide" >
    
-        {image.image.length > 1 && <button id='left' type='button' onClick={  () => idx !=0 &&  setIdx(idx-1)  } >  <AiOutlineArrowLeft className='iconss' />  </button>}
+        {image.image.length > 1 && idx != 0 && <button id='left' type='button' onClick={  () => idx !=0 &&  setIdx(idx-1)  } >  <AiOutlineArrowLeft className='iconss' />  </button>}
 
          <img  src={image.image[idx]}    onClick={() =>
           navigate("/IndividualPostPage", { state: { ele: image } })
         }  />
 
-        {image.image.length > 1 && <button id='right'  type='button' onClick={ () =>  idx !=image.image.length -1 &&  setIdx(idx+1)  }  >  <AiOutlineArrowRight className='iconss' /> </button>}
+        {image.image.length > 1 &&  idx !=image.image.length -1 && <button id='right'  type='button' onClick={ () =>  idx !=image.image.length -1 &&  setIdx(idx+1)  }  >  <AiOutlineArrowRight className='iconss' /> </button>}
 
 </div>
 
