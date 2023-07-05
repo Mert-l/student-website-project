@@ -138,7 +138,8 @@ try{
         
         setMessage(response.data.data);
         setTimeout(props.logout, 4000);
-        navigate('logIn')
+        setTimeout(navigate('/logIn'), 4000);
+        
 
       }
     } catch (err) {

@@ -1510,7 +1510,8 @@ color:rgb(249, 249, 249);
   justify-content: space-between;
   margin: 2%;
   height:90%;
-  cursor:pointer 
+  cursor:pointer ;
+  width: 90%;
 }
 
 .post_container_contact{
