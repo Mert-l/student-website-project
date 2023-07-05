@@ -133,10 +133,12 @@ try{
           "http://localhost:4000/user/updateAccount",
           user_
         );
-        console.log(response)
-        props.setUser_fromApp();
-        console.log("hopefoly updated:", response);
+        console.log( 'what is the response' , response)
+        props.setUser_fromApp(response.data.updated_user );
+        
         setMessage(response.data.data);
+        setTimeout(props.logout, 4000);
+
       }
     } catch (err) {
       console.log(err);
@@ -213,7 +215,7 @@ try{
               />
                 <button className="button_for_profile_pic2"  >submit?</button>
 
-              {/* <h3> {message} </h3> */}
+              <h3 id='o' > {message} </h3>
             </form>
           </div>
 

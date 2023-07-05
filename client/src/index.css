@@ -73,6 +73,9 @@ position: sticky;
   border-radius: 1px;
   height: 11%;
   width:90%;
+  font-weight:bolder;
+  color:#222566;
+  font-size:medium;
 }
 
 
@@ -167,12 +170,52 @@ position: sticky;
 .container2 button{
   background-color: rgba(255, 255, 255, 0.903);
   color:rgb(56, 63, 147);
-  border-radius: 5%;
+ 
   width:90%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 10%;
   box-shadow: 1px 4px 7px 1px rgba(0, 0, 0, 0.5); 
+  font-weight:bolder;
+  color:#222566;
+  font-size:medium;
+ 
+}
+
+#o{
+  margin-left: 25%;
+  color:#222566;
+  font-family: Helvetica, sans-serif;
+  font-size: medium;
+}
+
+.container2 button:hover{
+  background-color:antiquewhite;
+  color:rgb(56, 63, 147);
+ 
+  width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+  box-shadow: 1px 4px 7px 1px rgba(0, 0, 0, 0.5); 
+  font-weight:bolder;
+  color:#222566;
+  font-size:medium;
+ 
+}
+
+.container2 button:active{
+  background-color:#222566;
+  color:rgb(246, 246, 246);
+ 
+  width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+  box-shadow: 1px 4px 7px 1px rgba(0, 0, 0, 0.5); 
+  font-weight:bolder;
+  color:#f6f6f7;
+  font-size:medium;
  
 }
 

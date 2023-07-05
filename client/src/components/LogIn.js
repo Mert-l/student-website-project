@@ -69,7 +69,7 @@ try{
             <input placeholder='password' className= 'box_item' name = 'password'  type='password' />
         </div>
             
-         <button id= 'container_login_button' >Log in</button>   
+         <button id= 'container_login_button' >Continue</button>   
             
          <h4 id='z'   >{message}</h4>
             <NavLink  className= 'box_item2'  to={'/register'}> Create an account    </NavLink> 

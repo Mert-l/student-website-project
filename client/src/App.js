@@ -109,7 +109,7 @@ const logout= () => {
          {/* <Route path="/addPost" element={<AddPost   user={user} />} /> */}
          <Route path="/addPost"    element={!isLoggedIn ? <Navigate to="/LogIn" /> : <AddPost user={user} />}  /> 
          
-         <Route path="/profile" element={<Profile  user={user} setUser_fromApp={setUser}  />} />  
+         <Route path="/profile" element={<Profile  user={user} logout={logout} setUser_fromApp={setUser}  />} />  
          <Route path="/IndividualPostPage" element={<IndividualPostPage   />} />       
          <Route path="/ViewProfile" element={<ViewProfile   />} />      
          <Route path="/Contact" element={<Contact   userId={user}   />}  />  
