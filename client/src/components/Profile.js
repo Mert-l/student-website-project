@@ -138,8 +138,9 @@ try{
         props.setUser_fromApp(response.data.updated_user );
         
         setMessage(response.data.data);
-        setTimeout(props.logout, 4000);
-        setTimeout(navigate('/logIn'), 4000);
+        setTimeout(props.logout(), 5000);
+        setTimeout(navigate('/logIn'), 5000);
+        // props.logout()
         
 
       }

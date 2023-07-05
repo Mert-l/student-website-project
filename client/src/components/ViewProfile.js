@@ -13,11 +13,21 @@ const ViewProfile = (props) => {
     const [idx, setIdx] = useState(0)
     const location = useLocation();
     const navigate = useNavigate();
+    const [userBack, serUserBack] = useState;   // here
 
     const [posts, setPosts] = useState(null);
 
         const user = location.state.user;
     
+
+        useEffect(() => {
+  
+          if (user) {
+            setPostData(userBack);
+          }
+        }, []);
+
+
 
 
         const fetchPosts = async () => {
@@ -74,7 +84,7 @@ const ViewProfile = (props) => {
 
                 <div className="user_info_rest" > 
 
-          <div  className="mehh" >
+          <div  className="mehh2" >
                 <h3> {user.username} </h3>
                 
 
