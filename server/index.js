@@ -40,7 +40,7 @@ async function connecting(){
 
 
 
-    connecting();
+    
 
 
     app.use('/user', require("./routs/Users"))
@@ -58,6 +58,6 @@ app.get('/*', function (req, res) {
 });
   
 
-app.listen(PORT,  ()=> {
+connecting().then(app.listen(PORT,  ()=> {
     console.log('listening on port 4000!')
-})
+}))
