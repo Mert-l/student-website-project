@@ -40,12 +40,12 @@ return (
   
 <NavLink className = 'logo_on_navbar'
         to={"/home"}>
-        Student f
+        Student forum
       </NavLink>
 
       <NavLink  className = 'single'
         to={"/market"}>
-        Market
+        Trade
       </NavLink>
 
       <NavLink  className = 'single'
@@ -72,7 +72,7 @@ return (
       <div>
       {/* {console.log('passed img:', props.user)} */}
       {/* <button className = 'profile_button'   onClick= {() => setOpenDropDown(!openDropDown)}  ></button> */}
-        <img src={ze_pic}   onClick= {() => setOpenDropDown(!props.openDropDown)}  className = 'profile_button' />
+        <img src={ze_pic}   onClick= {() => setOpenDropDown(!props.openDropDown)}  className = 'profile_button_nav' />
       {openDropDown ? <DropDown setOpenDropDown={setOpenDropDown}  logout={props.logout}  openDropDown={openDropDown} /> : null }
 
       </div>

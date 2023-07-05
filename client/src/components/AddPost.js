@@ -98,7 +98,7 @@ function AddPost(props) {
             <option value="social">social</option>
           </select>
           <input placeholder="title" name="title" id="input" required value={post.title} />
-          <input
+          <textarea
             id="bioo"
             placeholder="description"
             name="description"
@@ -109,39 +109,45 @@ function AddPost(props) {
           {post.tags && post.tags.map((tag) => <h4 >{tag}</h4>)}
           </div>
 
-      
+      <div className="brr" > 
           <input
             name="tags"
             type="text"
             onChange={handleChangeTag}
             value={tag}
+            placeholder="name of the tag"
           />
+
            <button
-           
+           id='todisable'
             type="button"
             onClick={() => {
               
-                if(post.tags.length >0) {
-                        setPost((prevState) => ({
-                ...prevState,
-                tags: [...prevState.tags, tag],
-              }));
-                } else{
+                if(post.tags.length < 5 ){
+                  if(post.tags.length >0) {
                     setPost((prevState) => ({
-                        ...prevState,
-                        tags: [tag],
-                      }));
-                       
+            ...prevState,
+            tags: [...prevState.tags, tag],
+          }));
+            } else{
+                setPost((prevState) => ({
+                    ...prevState,
+                    tags: [tag],
+                  }));
+                   
+            }
+                } else{
+                  document.querySelector('#todisable').disabled = true;
                 }
           
               setTag("");
             }}
             disabled={!tag}
           >
-            Add tag
+             Add ⨁
           </button>
 
-        
+          </div> 
 
           {post.type && post.type !== "social" && (
             <input placeholder="price" name="price" id="input" type="number" />

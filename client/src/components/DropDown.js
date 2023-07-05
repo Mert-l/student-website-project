@@ -1,10 +1,16 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { AiOutlineArrowLeft } from 'react-icons/ai';
-
+import { useNavigate } from "react-router-dom";
 
 const DropDown = (props) => {
+  const navigate = useNavigate(); 
 
+const leave = () => {
+
+  props.logout();
+  navigate('/logIn')
+}
 
 
   return (
@@ -29,7 +35,7 @@ const DropDown = (props) => {
 
 
               
-                <h4 className='bar_link'  onClick={() => props.logout() } >Log out</h4>
+                <h4 className='bar_link'  onClick={() => leave() } >Log out</h4>
 
         </div>
     </nav>

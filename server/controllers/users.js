@@ -72,7 +72,7 @@ try{
     
 const found =await Users.findOne({_id: req.body._id} )
 if(found) {
-    const updated = await  Users.findOneAndUpdate({_id: req.body._id},  req.body )
+    const updated = await  Users.findOneAndUpdate({_id: req.body._id},  req.body, {new: true} )
     res.send({ok: true, data: `account has been updated`, updated_user: updated})
 // if(updated.acknowledged && updated.modifiedCount > 0 ){
 //     res.send({ok: true, data: `account has been updated`})
@@ -106,14 +106,14 @@ const logIn = async (req, res) => {
         const match = await argon2.verify(found.password, password);
         if(match){
             const token = jwt.sign({ _id: found._id, city: found.city }, jwt_secret, {
-                expiresIn: "1h",
+                expiresIn: "2h",
               });
               res.send({ ok: true, data: "welcome back", token});
         } else{
-            res.send({ok:false, data:'password didnt match'})        }
+            res.send({ok:false, data:'wrong password'})        }
        
     } else{
-        res.send({ok: false, data: 'No account exist. Create one'})
+        res.send({ok: false, data: 'Tha account does not exist'})
     }
  } catch(err){
 res.send({ok:false, data:'smth wrong'})

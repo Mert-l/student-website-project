@@ -59,19 +59,19 @@ try{
         <form className= 'container' onSubmit = {handleSubmit} onChange={handleChange} >
 
         <div className= 'two' >
-            <h4>Email:</h4>
+            <h4  id='e'  >Email:</h4>
             <input placeholder='email' className= 'box_item' name= 'email' />
            {/* <h4>Forgot password?</h4> */}
         </div>
 
         <div className= 'two' >
             <h4>Password:</h4>
-            <input placeholder='password' className= 'box_item' name = 'password'/>
+            <input placeholder='password' className= 'box_item' name = 'password'  type='password' />
         </div>
             
-         <button className= 'box_item' >Log in</button>   
+         <button id= 'container_login_button' >Log in</button>   
             
-         <h4>{message}</h4>
+         <h4 id='z'   >{message}</h4>
             <NavLink  className= 'box_item2'  to={'/register'}> Create an account    </NavLink> 
    
             

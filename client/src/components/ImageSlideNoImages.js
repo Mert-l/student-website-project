@@ -68,7 +68,7 @@ useEffect(() => {
              
         </div>
 
-      {image.description && <h5> {image.description.substring(0, 130) + '. . .' } </h5> }
+      {image.description && <h5> {image.description.length > 400 ?  image.description.substring(0, 400) + '. . .' : image.description   } </h5> }
        <div  className='price_interested'>
         {image.price ? <h5> {image.price}€ </h5> : null }
         <h5>Interested: {image.interested.length}  </h5>

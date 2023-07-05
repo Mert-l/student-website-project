@@ -119,7 +119,7 @@ const response = await axios.post("http://localhost:4000/post/deletePost", {
                   disabled={dis}
                 />
 
-                <input
+                <textarea
                   placeholder="description"
                   name="description"
                   id='bio_input'

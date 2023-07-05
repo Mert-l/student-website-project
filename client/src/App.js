@@ -20,12 +20,13 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import './index.css';
 import * as jose from "jose";
 import { useNavigate } from "react-router-dom";
+import LogedIn from "./components/LogIn";
 
 
 
 function App() {
 
- 
+
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   const token = JSON.parse(localStorage.getItem("token"))
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
@@ -79,7 +80,7 @@ const logout= () => {
   localStorage.removeItem("token")
   localStorage.removeItem("user")
   setIsLoggedIn(false)
-
+ 
 }
 
 
@@ -112,8 +113,8 @@ const logout= () => {
          <Route path="/IndividualPostPage" element={<IndividualPostPage   />} />       
          <Route path="/ViewProfile" element={<ViewProfile   />} />      
          <Route path="/Contact" element={<Contact   userId={user}   />}  />  
-
-  
+         
+      
        </Routes>
 
 

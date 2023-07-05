@@ -127,12 +127,14 @@ try{
     e.preventDefault();
     console.log("submits");
     try {
+      
       if (user_) {
         const response = await axios.post(
           "http://localhost:4000/user/updateAccount",
           user_
         );
-        props.setUser_fromApp(user_);
+        console.log(response)
+        props.setUser_fromApp();
         console.log("hopefoly updated:", response);
         setMessage(response.data.data);
       }
@@ -202,7 +204,7 @@ try{
                 value={user_.city && user_.city}
                 disabled={dis}
               />
-              <input
+              <textarea
                 placeholder="Bio"
                 name="bio"
                 id='bio_b'
