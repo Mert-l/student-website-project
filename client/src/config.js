@@ -1,4 +1,4 @@
-const URL = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? "http://localhost:4000" : "";
+const URL =  "https://hose-toad.cyclic.app";
 module.exports = {
 URL
 }
