@@ -3,4 +3,3 @@ module.exports = {
 URL
 }
  
-import {URL} from 'path../config'

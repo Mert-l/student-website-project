@@ -155,7 +155,7 @@ function AddPost(props) {
           )}
         </div>
         <div className="two_buttons">
-          <button type="submit">post</button>
+         
           <button
             onClick={() =>
               setPost({
@@ -170,8 +170,9 @@ function AddPost(props) {
             }
             type="button"
           >
-            cancel
+            ⌫ Back
           </button>
+          <button type="submit">Add ⊕</button>
         </div>
       </form>
     </div>

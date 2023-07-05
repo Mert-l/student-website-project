@@ -12,6 +12,7 @@ const ViewProfile = (props) => {
   
     const [idx, setIdx] = useState(0)
     const location = useLocation();
+    const navigate = useNavigate();
 
     const [posts, setPosts] = useState(null);
 
@@ -67,17 +68,30 @@ const ViewProfile = (props) => {
                 <div className="pic_name"  >
 
                     <img src={user.profile} />
-                    <h3> {user.username} </h3>
+                    
 
                 </div>
 
-                <div className="user_info_rest" >  
-                    <h3> {user.city}  </h3>
+                <div className="user_info_rest" > 
+
+          <div  className="mehh" >
+                <h3> {user.username} </h3>
+                
+
+</div>
+                    <h4> {user.city}  </h4>
                     <h5> {user.bio} </h5>
+  <div className="mehh" >
 
+                <NavLink  className='brum'  onClick={()=> navigate(-1) }   > Go back   </NavLink> 
+                <button  onClick={() => navigate('/Contact',  {state:{user}})  }  >Contact</button>
+                </div>
 
 
                 </div>
+
+
+              
 
 
             </div>
