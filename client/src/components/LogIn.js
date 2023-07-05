@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
-import URL from '../config.js'
+import {URL} from '../config.js'
 
 const LogedIn = (props) => {
    // const navigate = useNavigate();

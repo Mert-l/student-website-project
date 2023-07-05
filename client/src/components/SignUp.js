@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import axios from 'axios';
 import { useState} from 'react';
 import {useNavigate} from 'react-router-dom'
-import URL from '../config.js'
+import {URL} from '../config.js'
 
 
 const SignUp = () => {

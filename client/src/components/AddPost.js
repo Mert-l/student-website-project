@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import UploadImages from "./UploadImages";
 import Images from "./Images";
-import URL from '../config.js'
+import {URL} from '../config.js'
 
 function AddPost(props) {
 

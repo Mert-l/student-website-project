@@ -9,7 +9,7 @@ import { AiOutlineArrowRight } from 'react-icons/ai';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import UploadProfilePic from "./UploadProfilePic";
 import Images from "./Images";
-import URL from '../config.js'
+import {URL} from '../config.js'
 Modal.setAppElement("#root");
 
 

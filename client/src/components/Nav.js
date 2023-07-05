@@ -2,7 +2,7 @@ import DropDown from './DropDown';
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import URL from '../config.js'
+import {URL} from '../config.js'
 
 
 

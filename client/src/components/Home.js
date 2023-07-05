@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import React, {useState, useEffect} from "react";
 import ImageSlide from "./ImageSlide";
 import ImageSlideNoImages from "./ImageSlideNoImages";
-import URL from '../config.js'
+import {URL} from '../config.js'
 const Home = (props) => {
   const navigate = useNavigate();    
   

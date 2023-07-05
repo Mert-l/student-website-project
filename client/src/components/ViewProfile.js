@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import {useLocation} from 'react-router-dom';
-import URL from '../config.js'
+import {URL} from '../config.js'
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { AiOutlineArrowLeft } from 'react-icons/ai'
 

@@ -3,7 +3,7 @@ import { AiOutlineArrowLeft } from 'react-icons/ai';
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import URL from '../config.js'
+import {URL} from '../config.js'
 function ImageSlideNoImages (props) {
   const navigate = useNavigate();
 const image = props.dat;

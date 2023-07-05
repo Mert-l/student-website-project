@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import React, {useState, useEffect} from "react";
 import ImageSlide from "./ImageSlide";
-import URL from '../config.js'
+import {URL} from '../config.js'
 
 const Tutoring = (props) => {
   

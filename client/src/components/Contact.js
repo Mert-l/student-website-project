@@ -1,7 +1,7 @@
 
 import { NavLink } from "react-router-dom";
 import {useLocation} from 'react-router-dom';
-import URL from '../config.js'
+import {URL} from '../config.js'
 
 
 

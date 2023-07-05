@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-import URL from '../config.js'
+import {URL} from '../config.js'
 const IndividualPostPage = () => {
   const navigate = useNavigate();
   const [idx, setIdx] = useState(0);
