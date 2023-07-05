@@ -873,9 +873,9 @@ grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
       .two_buttons button:active{
 
         width: 30%;
-        padding:3%;
+        padding:2%;
         
-        border-radius: 30px;
+        
         color:rgb(244, 244, 247);
         border: solid rgb(31, 31, 106);
         background-color: rgb(16, 24, 75)
@@ -885,9 +885,9 @@ grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
       .two_buttons button:hover{
 
         width: 30%;
-        padding:3%;
+        padding:2%;
         
-        border-radius: 30px;
+        
         color:rgb(29, 29, 103);
         border: solid rgb(31, 31, 106);
         background-color: rgb(235, 235, 221)
@@ -913,6 +913,8 @@ grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
 
   
 }
+
+
 
 .slide2 img{
   width:100%;
@@ -2008,7 +2010,7 @@ color:#222566;
   width:30%;
   height: 35px;
   background-color:#222566;
-color:#efeff6;
+  color:#efeff6;
   border:solid;
   border-color: #222566;
   font-family: Helvetica, sans-serif;
@@ -2017,4 +2019,31 @@ color:#efeff6;
   justify-content: center;
   align-items: center;
   text-decoration: none;
+}
+
+
+.box2{
+  width: 70vh;
+  height: 80vh;
+   border: solid thin;
+   border-radius: 3%;
+   box-shadow: 1px 7px 12px 1px rgba(0, 0, 0, 0.5); 
+   /* display: flex;
+   flex-direction: column; */
+   margin-left: auto;
+   margin-right: auto;
+   justify-content: center;
+   align-items: center;
+   background-color:#222566;
+}
+
+.mlem{
+  display: flex;
+  width:100%;
+  margin-top:5%;
+  margin-bottom: 5%;
+
+}
+.mlem input{
+  width:210%;
 }

@@ -163,14 +163,14 @@ function AddPost(props) {
                 image: "",
                 title: "",
                 description: "",
-                price: "",
+                price: '',
                 tags: [],
                 type: 'initial',  /// heeere
               })
             }
             type="button"
           >
-            ⌫ Back
+            ⌫ Cancel
           </button>
           <button type="submit">Add ⊕</button>
         </div>

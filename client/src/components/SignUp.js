@@ -56,16 +56,21 @@ const SignUp = () => {
 
 
     return (
-        <div className= 'box' >
+        <div className= 'box2' >
             <h2 className= 'sign_in_logo'  >Sign up</h2>
 
         <form className= 'container2' onSubmit={handleSubmit} onChange={handleChange}  >
             
             <input placeholder='email' className= 'box_item' name='email'  required />
-            <input placeholder='password' type='password' className= 'box_item' name='password' />
-            <input placeholder='repeat password' className= 'box_item' name= 'password_repeat' />
+        <div className="mlem" >
             <input placeholder='username' className= 'box_item' name= 'username' />
             <input placeholder='city' className= 'box_item' name= 'city' />
+        </div>
+
+            <input placeholder='password' type='password' className= 'box_item' name='password' />
+            <input placeholder='repeat password' className= 'box_item' name= 'password_repeat' />
+
+
             <button type="submit" className= 'box_item'  >Sign up</button>
             <h5 className= 'box_item' >{message}</h5>
             <NavLink  className= 'box_item2'  to={'/logIn'}> Go back   </NavLink> 

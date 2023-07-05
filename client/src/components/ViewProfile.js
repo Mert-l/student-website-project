@@ -13,19 +13,17 @@ const ViewProfile = (props) => {
     const [idx, setIdx] = useState(0)
     const location = useLocation();
     const navigate = useNavigate();
-    const [userBack, serUserBack] = useState;   // here
+   
 
     const [posts, setPosts] = useState(null);
 
-        const user = location.state.user;
-    
+    const [user, setUser] = useState("");
 
-        useEffect(() => {
-  
-          if (user) {
-            setPostData(userBack);
-          }
-        }, []);
+    useEffect(() => {
+      if (location.state) {
+        setUser(location.state.user);
+      }
+    }, []);
 
 
 
