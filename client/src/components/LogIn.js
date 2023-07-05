@@ -22,7 +22,7 @@ const LogedIn = (props) => {
 
       const handleSubmit = async (e) => {
         e.preventDefault();
-try{      `${URL}`
+try{      
 
     const response = await axios.post(`${URL}/user/logIn`, {
         email: form.email.toLowerCase(),
