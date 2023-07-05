@@ -10,7 +10,7 @@ try {
     res.send({ ok: false, message: "Post type is required!" });
   } else{ 
   const user = await Users.findOne({ _id: userId });
-      console.log(user._id);
+    
       const created_post = await Posts.create({
         title,
         image,

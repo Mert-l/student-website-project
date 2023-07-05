@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-
+import URL from '../config.js'
 const IndividualPostPage = () => {
   const navigate = useNavigate();
   const [idx, setIdx] = useState(0);
@@ -37,7 +37,7 @@ const IndividualPostPage = () => {
   } = postData;
 
   useEffect(() => {
-    console.log(location);
+  
     if (location.state) {
       setPostData(location.state.ele);
     }
@@ -45,11 +45,11 @@ const IndividualPostPage = () => {
 
   const fetchUser = async () => {
     try {
-      const response = await axios.post("http://localhost:4000/user/getUser", {
+      const response = await axios.post(`${URL}/user/getUser`, {
         _id: userId,
       });
 
-      // console.log("fetchet op i hope: ", response);
+  
       setUser(response.data.obj);
     } catch (error) {
       console.log(error);

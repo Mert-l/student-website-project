@@ -2,7 +2,7 @@ import DropDown from './DropDown';
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-
+import URL from '../config.js'
 
 
 
@@ -14,11 +14,11 @@ const Nav = (props) => {
 
   const fetchProfilePic = async () => {
     try {
-      const response = await axios.post("http://localhost:4000/user/getUser", {
+      const response = await axios.post(`${URL}/user/getUser`, {
         _id: props.user
       });
 
-      console.log("response userrrrrrr: ", response);
+     
       setZePic(response.data.obj.profile);
     } catch (error) {
       console.log(error);
@@ -29,7 +29,7 @@ const Nav = (props) => {
     fetchProfilePic();
   }, []);
 
-console.log('zeeeeee picccc:', ze_pic)
+
 
 const [openDropDown, setOpenDropDown] = useState(false)
 
@@ -70,8 +70,7 @@ return (
       </NavLink>
 
       <div>
-      {/* {console.log('passed img:', props.user)} */}
-      {/* <button className = 'profile_button'   onClick= {() => setOpenDropDown(!openDropDown)}  ></button> */}
+    
         <img src={ze_pic}   onClick= {() => setOpenDropDown(!props.openDropDown)}  className = 'profile_button_nav' />
       {openDropDown ? <DropDown setOpenDropDown={setOpenDropDown}  logout={props.logout}  openDropDown={openDropDown} /> : null }
 

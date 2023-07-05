@@ -11,7 +11,7 @@ const UploadImages = ({ setProfilePic}) => {
       },
       (error, result) => {
         if (error) {
-          console.log(error);
+          
         } else {
           result.event === "queues-end" && set_picture(result);
         }
@@ -21,7 +21,7 @@ const UploadImages = ({ setProfilePic}) => {
 
   const set_picture = async (result) => {
     let images = result.info.files.map((file) => file.uploadInfo.url);
-    console.log('profile imagess:' , images)
+  
     setProfilePic(images[0]);
   };
   // function to send data to server to create a new post

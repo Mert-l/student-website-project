@@ -3,14 +3,14 @@ import { AiOutlineArrowLeft } from 'react-icons/ai';
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import URL from '../config.js'
 function ImageSlideNoImages (props) {
   const navigate = useNavigate();
 const image = props.dat;
 const formatDate = props.formatDate;
 const [idx, setIdx] = useState(0)
 
-console.log('what is imageee', image)
+
 const [ze_pic, setZePic] = useState('');
 const[userName, setUserName] = useState('')
 
@@ -18,11 +18,10 @@ const fetchProfilePic = async () => {
   
   try {
    
-    const response = await axios.post("http://localhost:4000/user/getUser", {
+    const response = await axios.post(`${URL}/user/getUser`, {
       _id: image.userId
     });
-      console.log('does it even work')
-    console.log("response from fetching pic?: ", response);
+  
     setZePic(response.data.obj.profile);
     setUserName(response.data.obj.username)
   } catch (error) {

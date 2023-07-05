@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import React, {useState, useEffect} from "react";
 import ImageSlide from "./ImageSlide";
 import ImageSlideNoImages from "./ImageSlideNoImages";
-
+import URL from '../config.js'
 const Home = (props) => {
   const navigate = useNavigate();    
   
@@ -22,8 +22,8 @@ const Home = (props) => {
 
   try {
    
-    const response = await axios.post('http://localhost:4000/post/getPosts', {city: props.city } )
-    // console.log(response)
+    const response = await axios.post(    `${URL}/post/getPosts`  , {city: props.city } )
+   
 setPosts(response.data.reverse())
   } catch (error) {
     console.log(error);
@@ -55,7 +55,7 @@ setPosts(response.data.reverse())
           return `posted more that 1 month agp`
         }
 
-        console.log( 'sliced:' ,  diff);
+   
 
 
     }

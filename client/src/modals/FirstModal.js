@@ -17,19 +17,19 @@ function ReactModalInfo({ open, toggle, modalPosts, fetchPosts }) {
 
 const delete_post = async () => {
     
-        console.log('triggersd delete function')
+     
 try{
 
 const response = await axios.post("http://localhost:4000/post/deletePost", {
         updateForm });
-        console.log(  'deleted:   ' ,  response);
+    
       fetchPosts()
       toggle("close")
 
 
 } catch(err)  {
 
-     console.log(  "the current errr:  " , err);
+    
 
 }
 
@@ -38,18 +38,18 @@ const response = await axios.post("http://localhost:4000/post/deletePost", {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("submits");
+
     try {
       
       const response = await axios.post(
         "http://localhost:4000/post/updatePost",
         updateForm
       );
-      console.log("maybe updated: ", response);
+   
       fetchPosts()
       toggle("close")
     } catch (err) {
-      console.log(err);
+    
     }
   };
 

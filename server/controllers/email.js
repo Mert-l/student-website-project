@@ -14,7 +14,7 @@ const transport = nodemailer.createTransport({
 
 
 const send_email = async (req, res) => {
-    console.log(req.body)
+  
     const { name, subject, text, from, to } = req.body;
     const default_subject = 'This is a default subject';
     const mailOptions = {
@@ -34,10 +34,10 @@ const send_email = async (req, res) => {
 
     try {
       const success = await transport.sendMail(mailOptions);
-      console.log("success: ", success)
+    
       return res.json({ ok: true, message: 'Email sent!' });
     } catch (err) {
-      console.log(err)
+   
       return res.json({ ok: false, message: err });
     }
   };

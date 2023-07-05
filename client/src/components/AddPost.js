@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import UploadImages from "./UploadImages";
 import Images from "./Images";
+import URL from '../config.js'
 
 function AddPost(props) {
 
@@ -23,11 +24,11 @@ function AddPost(props) {
   const fetchUser = async () => {
   
     try {
-      const response = await axios.post("http://localhost:4000/user/getUser", {
+      const response = await axios.post(  `${URL}/user/getUser` , {
         _id: props.user._id
       });
 
-      // console.log("response userrrrrrr: ", response);
+     
       setUser(response.data.obj);
     } catch (error) {
       console.log(error);
@@ -54,8 +55,8 @@ function AddPost(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      debugger
-      const response = await axios.post("http://localhost:4000/post/post", {
+    
+      const response = await axios.post(`${URL}/post/post`, {
         title: post.title,
         image: post.image,
         price: post.price,
@@ -67,11 +68,11 @@ function AddPost(props) {
       });
       
       navigate("/");
-      console.log("post that god please i created:", response);
+     
     } catch (err) {
       console.log(err);
     }
-    // console.log('seeeeeeeee: ', post )
+    
   };
 
   return (

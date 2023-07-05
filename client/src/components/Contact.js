@@ -1,7 +1,7 @@
 
 import { NavLink } from "react-router-dom";
 import {useLocation} from 'react-router-dom';
-
+import URL from '../config.js'
 
 
 
@@ -19,7 +19,7 @@ const Contact = (props) => {
     const navigate = useNavigate();
 
     const location = useLocation();
-    console.log( 'locationnnn', location.state.user);
+
         const[mess, setMess] = useState('')
     const op = location.state.user;
   
@@ -31,16 +31,16 @@ const Contact = (props) => {
 
      const[currentUser, setCurrentUser] = useState(null);
 
-// console.log('is that the thing:'  , user)
+
 
 const fetchUser = async () => {
     try {
        
-      const response = await axios.post("http://localhost:4000/user/getUser", {
+      const response = await axios.post(`${URL}/user/getUser`, {
         _id: props.userId,
       });
 
-      // console.log("response userrrrrrr: ", response);
+   
       setCurrentUser(response.data.obj);
     } catch (error) {
       console.log(error);
@@ -77,7 +77,7 @@ const fetchUser = async () => {
          setMess(response.data.message)
       
         
-          console.log("post response:", response);
+        
         } catch (err) {
           console.log(err);
         }

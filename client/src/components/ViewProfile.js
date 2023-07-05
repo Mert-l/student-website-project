@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import {useLocation} from 'react-router-dom';
-
+import URL from '../config.js'
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { AiOutlineArrowLeft } from 'react-icons/ai'
 
@@ -12,23 +12,23 @@ const ViewProfile = (props) => {
   
     const [idx, setIdx] = useState(0)
     const location = useLocation();
-    console.log(location);
+
     const [posts, setPosts] = useState(null);
 
         const user = location.state.user;
-        console.log('is that what i think it is', user)
+    
 
 
         const fetchPosts = async () => {
             try {
               const response = await axios.post(
-                "http://localhost:4000/post/getUserPosts",
+                `${URL}/post/getUserPosts`,
                 { userId: user._id }
               );
-              console.log("fetche Ahmeds posts:", response);
+         
               setPosts(response.data);
             } catch (error) {
-              console.log(error);
+             
             }
           };
         
@@ -51,8 +51,6 @@ const ViewProfile = (props) => {
             else if(diff > 30){
               return `posted more that 1 month agp`
             }
-          
-            console.log( 'sliced:' ,  diff);
           
           
           }

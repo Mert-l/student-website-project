@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
+import URL from '../config.js'
 
 const LogedIn = (props) => {
    // const navigate = useNavigate();
@@ -13,7 +14,7 @@ const LogedIn = (props) => {
       });
     
 
-    
+  
  
     const handleChange = (e) => {
         setValues({ ...form, [e.target.name]: e.target.value });
@@ -21,17 +22,17 @@ const LogedIn = (props) => {
 
       const handleSubmit = async (e) => {
         e.preventDefault();
-try{
+try{      `${URL}`
 
-    const response = await axios.post(`http://localhost:4000/user/logIn`, {
+    const response = await axios.post(`${URL}/user/logIn`, {
         email: form.email.toLowerCase(),
         password: form.password,
       });
       setMessage(response.data.data);
       if(response.data.ok) {
         //let decodedToken = jose.decodeJwt(response.data.token);
-            console.log('you are loged in!!!')
-            console.log(response.data.token)
+           
+          
             setTimeout( () => {
                 props.login(response.data.token)
             }, 1500 )

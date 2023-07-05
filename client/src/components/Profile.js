@@ -9,6 +9,7 @@ import { AiOutlineArrowRight } from 'react-icons/ai';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import UploadProfilePic from "./UploadProfilePic";
 import Images from "./Images";
+import URL from '../config.js'
 Modal.setAppElement("#root");
 
 
@@ -31,7 +32,7 @@ const Profile = (props) => {
 
   const [open, setOpen] = useState(false);
 
-  // console.log('this one?', user_)
+
 
   const letsSee = async (id) => {
     let post = posts.find((ele) => ele._id === id);
@@ -52,11 +53,11 @@ const Profile = (props) => {
 
   const fetchUser = async () => {
     try {
-      const response = await axios.post("http://localhost:4000/user/getUser", {
+      const response = await axios.post(`${URL}/user/getUser`, {
         _id: props.user._id,
       });
 
-      // console.log("response userrrrrrr: ", response);
+ 
       setUser(response.data.obj);
     } catch (error) {
       console.log(error);
@@ -83,7 +84,7 @@ const Profile = (props) => {
       return `posted more that 1 month agp`
     }
   
-    console.log( 'sliced:' ,  diff);
+  
   
   
   }
@@ -103,16 +104,16 @@ try{
 
   const handleChange = (e) => {
     setUser({ ...user_, [e.target.name]: e.target.value });
-    console.log('changed user:' , user_)
+   
   };
 
   const fetchPosts = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:4000/post/getUserPosts",
+        `${URL}/post/getUserPosts`,
         { userId: props.user._id }
       );
-      console.log("post response:", response);
+ 
       setPosts(response.data);
     } catch (error) {
       console.log(error);
@@ -125,15 +126,15 @@ try{
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("submits");
+   
     try {
       
       if (user_) {
         const response = await axios.post(
-          "http://localhost:4000/user/updateAccount",
+          `${URL}/user/updateAccount`,
           user_
         );
-        console.log( 'what is the response' , response)
+      
         props.setUser_fromApp(response.data.updated_user );
         
         setMessage(response.data.data);

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import axios from 'axios';
 import { useState} from 'react';
 import {useNavigate} from 'react-router-dom'
-
+import URL from '../config.js'
 
 
 const SignUp = () => {
@@ -30,7 +30,7 @@ const SignUp = () => {
         try{
             
            
-            const response = await axios.post('http://localhost:4000/user/register', {
+            const response = await axios.post(`${URL}/user/register`, {
                 email: form.email,
                 password: form.password,
                 password_repeat: form.password_repeat,
@@ -46,10 +46,10 @@ const SignUp = () => {
 				}, 3000);
 			}
 
-         console.log(response)
+         
 
         } catch(err){
-            console.log(err);
+            
         }
 
     }

@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import React, {useState, useEffect} from "react";
 import ImageSlide from "./ImageSlide";
+import URL from '../config.js'
 
 const Social = (props) => {
   
@@ -13,13 +14,13 @@ const Social = (props) => {
   const fetchPosts = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:4000/post/getTypePosts",
+        `${URL}/post/getTypePosts`,
         { type: 'social', city: props.city  }
       );
-      console.log("post response:", response);
+     
       setPosts(response.data);
     } catch (error) {
-      console.log(error);
+     
     }
   };
 
@@ -42,7 +43,7 @@ const Social = (props) => {
            return `posted more that 1 month agp`
          }
  
-         console.log( 'sliced:' ,  diff);
+        
  
  
      }

@@ -30,7 +30,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   const token = JSON.parse(localStorage.getItem("token"))
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
-  console.log('lets see intial:', user)
+
 
   useEffect(() => {
     const verify_token = async () => {
@@ -43,7 +43,7 @@ function App() {
           return response.data.ok ? login(token) : logout();
         }
       } catch (error) {
-        console.log(error);
+     
       }
     };
     verify_token();
@@ -61,7 +61,7 @@ function App() {
 const login = (token) => {
 
   let decodedToken = jose.decodeJwt(token);
-  console.log('decoded tokennnnnn:' , decodedToken)
+
  
   let user = {
     _id: decodedToken._id,
