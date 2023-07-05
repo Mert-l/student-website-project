@@ -115,7 +115,7 @@ const fetchUser = async () => {
             <textarea  id='c_message'  name='text'   />
 
 <div className="dasf" >
-            <button  onClick={()=> navigate(-1) }   >Back</button>
+            <button  onClick={()=> navigate(-1) } type='button'  >Back</button>
            <button  id='theOne' type='Submit'  >Send</button>
 </div>
 
