@@ -10,13 +10,14 @@ var cors = require('cors')
 
 const PORT = process.env.PORT || 4000
 app.use(cors())
+//app.use(cors({ origin: '*' }));
 app.use(express.urlencoded({extended:true}))
 app.use(express.json());
 
 async function connecting(){
     try {
         await mongoose.connect(process.env.MONGO) 
-        console.log('Connected to the DBBBB')
+        console.log('Connected to the DBBBB22222')
     } catch ( error ) {
         console.log('ERROR: Seems like your DB is not running, please start it up !!!');
     }
@@ -59,5 +60,5 @@ app.get('/*', function (req, res) {
   
 
 connecting().then(app.listen(PORT,  ()=> {
-    console.log('listening on port 4000!')
+    console.log('listening on port '+ PORT)
 }))

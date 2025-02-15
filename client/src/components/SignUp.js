@@ -5,8 +5,8 @@ import { useState} from 'react';
 import {useNavigate} from 'react-router-dom'
 import {URL} from '../config.js'
 
-
 const SignUp = () => {
+    
 
  const navigate=useNavigate()
 
@@ -29,7 +29,7 @@ const SignUp = () => {
         e.preventDefault();
         try{
             
-           
+            console.log("BRRRRRRRRRRRRRRRRRRRRR");
             const response = await axios.post(`${URL}/user/register`, {
                 email: form.email,
                 password: form.password,

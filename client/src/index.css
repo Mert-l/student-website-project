@@ -18,24 +18,26 @@ code {
 }
 
 .navbar {
+
 width: 100%;
 height: 10vh;
 display: flex;
 background-color:#222566;
-justify-content: space-around;
+justify-content: left;
 align-items: center;
 /* position: sticky; */
 position:fixed;
 top:0;
 box-shadow: 1px 7px 12px 1px rgba(0, 0, 0, 0.5); 
-z-index: 9;
+z-index: 1000;
 
 
 }
 .single {
   color:white;
-  padding: 1%;
+  /* padding: 1%; */
   text-decoration: none;
+  margin-left: 67%;
 }
 
 .box{
@@ -248,11 +250,12 @@ z-index: 9;
   background-image: url("./images/user.png");
   padding: 2%;
   border-radius: 70%;
-  width: 45px;
-  height: 45px;
+  width: 42px;
+  height: 42px;
   background-repeat: no-repeat;
   background-position: center ;
   margin-left: 100%;
+  margin-top: 10%;
 
 }
 
@@ -385,17 +388,20 @@ width: 70%;
 }
 
 .post{
-  border: thin ;
-  border-radius: 15px;
-  box-shadow: 2px 5px 8px 2px rgba(71, 69, 69, 0.5); 
-  display:flex;
-  width:50vh;
+  /* border: thin ;
+  border-radius: 5px;
+  box-shadow: 2px 5px 8px 2px rgba(71, 69, 69, 0.5);  */
+  display: flex;
+
+  flex-direction: column;
+  width:48vh;
   justify-content: center;
   margin:2%;
   margin-top: 4%;
  /* height: 70%; */
  position:relative;
- height: 500px;
+ height: 55vh;
+ margin-top: 20%;
 
 }
 
@@ -414,7 +420,7 @@ width: 70%;
 
 
 .post_text{
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   justify-content: space-between;
   margin: 2%;
@@ -434,11 +440,11 @@ height:50%;
 .profile_box{
   /* border: solid thin; */
   margin-top:100px;
-  margin-left:auto;
+  margin-left:20%;
   margin-right: auto;
   margin-bottom: 10%;
-  width:85%;
-  height: 100%;
+  width:80%;
+  height: 80%;
 
 }
 
@@ -772,12 +778,14 @@ grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
       background-color: rgb(251, 247, 247);
       box-shadow: 1px 7px 12px 1px rgba(20, 9, 84, 0.5); 
       border-radius: 20px;
-      margin-top:130px;
-      margin-left:auto;
+      /* margin-top:130px;
+      margin-left: 20%;
       margin-right: auto;
-      margin-bottom: 10%;
-      width:80%;
-      height: 80vh;
+      margin-bottom: 10%; */
+      margin-left: 30%;
+      margin-top: 10%;
+      width:60%;
+      height: 70vh;
       display:flex;
       justify-content: space-between;
       align-items: center;
@@ -904,7 +912,7 @@ grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
     /* added height to slide---------------------- */
 
 .slide{
-  height: 50%;
+  height: 60%;
   width:100%;
 }
 
@@ -1015,9 +1023,12 @@ position:relative;
 
 .slide img{
   width:100%;
-  height:100%;
-  border-top-left-radius: 15px;
+  height: 100%;
+  /* border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px; */
+  border-radius: 7px;
 }
 
 .post_element{
@@ -1028,13 +1039,19 @@ position:relative;
 
 
 .display_posts{
+
   margin: 5%;
-  display: grid;
-  margin-top:100px;
+  display:grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  grid-gap: 150px;
+  /* display: flex; */
+  gap: 3%;
+  /* grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-gap: 150px; */
   /* display: flex;
   flex-wrap: wrap; */
+  margin-left: 250px;
+  padding: 20px;
+  /* margin-top: 20vh;  */
 }
 
 /* .display_posts div{
@@ -1172,7 +1189,7 @@ position:relative;
 
 .one_post{
   border: thin;
-  width: 100%;
+  width: 40vh;
   /* height: 300px; */
   display: flex;
   flex-direction: column;
@@ -1302,6 +1319,7 @@ margin-left: 4%;
 .yahh{
   display:flex;
   justify-content: space-between;
+  height: 15%;
 }
 
 .slide_for_single_post_page{
@@ -1651,13 +1669,13 @@ color:rgb(249, 249, 249);
 
 }
 
-.display_posts {
+/* .display_posts {
   margin: 5%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-gap: 150px;
   margin-left: 15%;
-}
+} */
 
 
 .post_container {
@@ -2047,3 +2065,85 @@ color:#222566;
 .mlem input{
   width:210%;
 }
+
+
+/* Sidebar.css ================= */
+/* Sidebar.css */
+/* Sidebar.css */
+.sidebar {
+  position: fixed; /* Position the sidebar below the navbar */
+  top: 60px; /* Adjust this value to match the height of your top navbar */
+  left: 0;
+  width: 250px;
+  height: calc(100% - 60px); /* Adjust this to take up the remaining height below the navbar */
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+  padding-top: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  z-index: 900; /* Ensure sidebar stays on top */
+
+
+}
+
+.sidebar-header {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #1877f2;
+  margin-bottom: 20px;
+}
+
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-item {
+  padding: 15px 20px;
+}
+
+.sidebar-item:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+.sidebar-link {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-link2 {
+  padding: 15px 20px;
+  text-decoration: none;
+  color: #20213f;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  margin-top: 10%;
+}
+
+.sidebar-icon {
+  margin-right: 10px;
+  font-size: 20px;
+  color: #222566;
+}
+
+.sidebar-item:hover .sidebar-link {
+  color: #222566;
+}
+
+.sidebar-item:hover .sidebar-icon {
+  color: #222566;
+}
+
+/* Main content area */
+/* .display_posts {
+  margin-left: 250px;
+  padding: 20px;
+  margin-top: 60px; 
+} */

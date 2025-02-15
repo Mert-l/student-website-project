@@ -24,5 +24,5 @@ const postSchema = new mongoose.Schema({
 
 module.exports = mongoose.model("post", postSchema);
 
-// user id type sould be mongoose.Schema.Types.ObjectId
+
 

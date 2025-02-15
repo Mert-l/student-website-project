@@ -58,7 +58,8 @@ useEffect(() => {
         }  >
 
         <div className='yahh' >  
-             <h3> {image.title} </h3>
+             
+             {image.price ? <h5> {image.price}€ </h5> : null }
              <div className='yhh' >
                 <img  src={ze_pic}   className = 'profile_button'  />
                 <h5> {userName} </h5>
@@ -69,7 +70,7 @@ useEffect(() => {
 
       {image.description && <h5> {image.description.length > 400 ?  image.description.substring(0, 400) + '. . .' : image.description   } </h5> }
        <div  className='price_interested'>
-        {image.price ? <h5> {image.price}€ </h5> : null }
+        <h3> {image.title} </h3>
         <h5>Interested: {image.interested.length}  </h5>
         <h5>  {  formatDate(image.createdAt)   }  </h5>
     </div>

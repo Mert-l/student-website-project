@@ -38,7 +38,7 @@ useEffect(() => {
 
   return (
 
-<div className="one_post" >
+<div className="post" >
 
 <div className="slide" >
    
@@ -58,21 +58,22 @@ useEffect(() => {
         }  >
 
         <div className='yahh' >  
-             <h3> {image.title} </h3>
-             <div className='yhh' >
+        {image.price ? <h5> {image.price}€ </h5> : <h5>--$</h5> }
+             {/* <div className='yhh' >
                 <img  src={ze_pic}   className = 'profile_button'  />
                 <h5> {userName} </h5>
 
-             </div>
+             </div> */}
              
         </div>
-
-      {image.description && <h5> {image.description.substring(0, 130) + '. . .' } </h5> }
+        <h5> {image.title} </h5>
+      {image.description && <h5> {image.description.substring(0, 70) + '. . .' } </h5> }
        <div  className='price_interested'>
-        {image.price ? <h5> {image.price}€ </h5> : null }
+        
+        
         <h5>Interested: {image.interested.length}  </h5>
         <h5>  {  formatDate(image.createdAt)   }  </h5>
-    </div>
+      </div>
 </div>
 
 

@@ -1,12 +1,12 @@
-
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import React, {useState, useEffect} from "react";
 import ImageSlide from "./ImageSlide";
 import ImageSlideNoImages from "./ImageSlideNoImages";
 import {URL} from '../config.js'
+import Sidebar_nav from './Sidebar.js';
 const Home = (props) => {
-  const navigate = useNavigate();    
+const navigate = useNavigate();    
   
   
 
@@ -70,6 +70,7 @@ setPosts(response.data.reverse())
 return(
 
   <div className = 'display_posts' >
+    {/* <Sidebar_nav/> */}
   {
     !posts ? 
 

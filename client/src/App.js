@@ -1,5 +1,6 @@
 import Home from "./components/Home";
 import Nav from './components/Nav';
+import Sidebar_nav from './components/Sidebar';
 import LogIn from './components/LogIn';
 import Tutoring from './components/Tutoring';
 import Rentals from './components/Rentals';
@@ -90,6 +91,8 @@ const logout= () => {
     <Router>
         
          {isLoggedIn ? <Nav  logout={logout}  user={user} /> : <h1 className ='logo' >Student forum</h1>  }
+        
+         {isLoggedIn? <Sidebar_nav/> :  null  }
          
        <Routes>
        <Route path='/'  element={isLoggedIn ?  <Navigate to={'/Home'}/> : <Navigate to={'/LogIn'}/> }  />
@@ -100,7 +103,10 @@ const logout= () => {
            <Route path="/home"    element={!isLoggedIn ? <Navigate to="/LogIn" /> : <Home  city= { user.city}  />}  />
             <Route path="/rentals" element={<Rentals city={user.city} />} />
             <Route path="/tutoring" element={<Tutoring city={user.city} />} />
+            <Route path="/market" element={<Marketplace city={user.city} />} />
             <Route path="/social" element={<Social city={user.city} />} />{" "}
+            
+
           </>
         )}
     

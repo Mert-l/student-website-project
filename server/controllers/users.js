@@ -8,6 +8,8 @@ const jwt_secret = process.env.JWT_SECRET;
 
 
 const registerUser= async (req,res) =>{
+    console.log("ZZZZZZZZZZRRRRRRRRR");
+    
     const {username, email, password, city,password_repeat  }=req.body
     
     try {
@@ -20,7 +22,8 @@ const registerUser= async (req,res) =>{
       
        res.send({ok: false, data: 'this name is taken'})
     } else if(!username || !email || !password || !city || !password_repeat){
-        res.send({ok:false, data:'all fields requirded'})
+        console.log("IT COMES HEREEE");
+        res.send({ok:false, data:'all fields requirded pls'})
     }   else if (!validator.isEmail(email)) {
         return res.json({ ok: false, data: "Invalid email provided" });
       }
@@ -30,6 +33,7 @@ const registerUser= async (req,res) =>{
     else if (!found_name && !found_mail){
         
       if(password == password_repeat){
+       
         const hash = await argon2.hash(password, salt);
         const created_user = await Users.create({ username, email ,password: hash, city })
         res.send({ok: true, data: 'Your account has been created, you will be redirected to log in page', user: created_user})

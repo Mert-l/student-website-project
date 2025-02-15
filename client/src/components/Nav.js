@@ -43,7 +43,7 @@ return (
         Student forum
       </NavLink>
 
-      <NavLink  className = 'single'
+      {/* <NavLink  className = 'single'
         to={"/market"}>
         Trade
       </NavLink>
@@ -62,7 +62,7 @@ return (
       <NavLink  className = 'single'
         to={"/social"}>
         Social
-      </NavLink>
+      </NavLink> */}
 
       <NavLink  className = 'single'
         to={"/addPost"}>
